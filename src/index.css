@@ -2,55 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Walsadua — Portal inmobiliario para propietarios. Sistema de diseño. */
+/* Walsadua — Portal inmobiliario profesional. Sistema de diseño base. */
 
 @layer base {
   :root {
-    --background: 40 30% 98%;
-    --foreground: 30 12% 12%;
+    /* Base clara profesional */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 30 12% 12%;
+    --card-foreground: 220 20% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 30 12% 12%;
+    --popover-foreground: 220 20% 12%;
 
-    /* Brand: cálido terracota / oliva profundo */
-    --primary: 24 45% 28%;
+    /* Marca por defecto: verde oliva profundo (T1) — se sobreescribe por tema */
+    --primary: 90 25% 22%;
     --primary-foreground: 40 30% 98%;
 
-    --secondary: 36 25% 92%;
-    --secondary-foreground: 30 12% 12%;
+    --secondary: 40 20% 96%;
+    --secondary-foreground: 220 20% 12%;
 
-    --muted: 36 20% 94%;
-    --muted-foreground: 30 8% 42%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
 
-    --accent: 38 70% 55%;
-    --accent-foreground: 30 12% 12%;
+    --accent: 35 70% 52%;
+    --accent-foreground: 220 20% 12%;
 
     --destructive: 0 70% 50%;
-    --destructive-foreground: 40 30% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 30 15% 88%;
-    --input: 30 15% 88%;
-    --ring: 24 45% 28%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 90 25% 22%;
 
-    --ink: 30 18% 8%;
-    --sand: 36 30% 90%;
-    --gold: 38 70% 55%;
-    --olive: 80 18% 30%;
+    --surface: 40 25% 97%;
+    --available: 145 50% 38%;
+    --soon: 35 90% 50%;
 
-    --gradient-warm: linear-gradient(135deg, hsl(24 45% 28%), hsl(38 70% 55%));
-    --gradient-sand: linear-gradient(180deg, hsl(40 30% 98%), hsl(36 25% 92%));
-    --gradient-ink: linear-gradient(135deg, hsl(30 18% 8%), hsl(24 25% 18%));
+    --shadow-card: 0 1px 2px hsl(220 20% 12% / 0.04), 0 4px 16px -4px hsl(220 20% 12% / 0.08);
+    --shadow-elegant: 0 20px 60px -20px hsl(220 20% 12% / 0.18);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --shadow-soft: 0 4px 24px -8px hsl(30 18% 8% / 0.08);
-    --shadow-elegant: 0 20px 60px -20px hsl(30 18% 8% / 0.18);
-    --shadow-gold: 0 10px 40px -10px hsl(38 70% 55% / 0.35);
-
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --radius: 0.75rem;
+    --radius: 0.625rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -62,26 +56,28 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 30 18% 8%;
-    --foreground: 40 30% 96%;
-    --card: 30 15% 12%;
-    --card-foreground: 40 30% 96%;
-    --popover: 30 15% 12%;
-    --popover-foreground: 40 30% 96%;
-    --primary: 38 70% 55%;
-    --primary-foreground: 30 18% 8%;
-    --secondary: 30 12% 16%;
-    --secondary-foreground: 40 30% 96%;
-    --muted: 30 12% 16%;
-    --muted-foreground: 36 15% 65%;
-    --accent: 38 70% 55%;
-    --accent-foreground: 30 18% 8%;
-    --destructive: 0 62% 45%;
-    --destructive-foreground: 40 30% 96%;
-    --border: 30 12% 20%;
-    --input: 30 12% 20%;
-    --ring: 38 70% 55%;
+  /* TEMA 1 — Esencial (verde oliva profesional) */
+  [data-theme="t1"] {
+    --primary: 90 25% 22%;
+    --primary-foreground: 40 30% 98%;
+    --accent: 35 70% 52%;
+    --surface: 40 25% 97%;
+  }
+
+  /* TEMA 2 — Editorial (azul marino profundo) */
+  [data-theme="t2"] {
+    --primary: 215 45% 18%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 25 85% 55%;
+    --surface: 30 25% 96%;
+  }
+
+  /* TEMA 3 — Premium (negro grafito + dorado) */
+  [data-theme="t3"] {
+    --primary: 220 15% 14%;
+    --primary-foreground: 40 35% 95%;
+    --accent: 38 65% 50%;
+    --surface: 220 10% 97%;
   }
 }
 
@@ -93,40 +89,41 @@
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, h5 {
-    font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     letter-spacing: -0.02em;
+    font-weight: 500;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Fraunces', 'Playfair Display', Georgia, serif; }
+  .font-display { font-family: 'Fraunces', Georgia, serif; }
+  .font-sans-pro { font-family: 'Inter', system-ui, sans-serif; }
   .text-balance { text-wrap: balance; }
-  .gradient-warm { background: var(--gradient-warm); }
-  .gradient-ink { background: var(--gradient-ink); }
-  .gradient-sand { background: var(--gradient-sand); }
-  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .bg-surface { background-color: hsl(var(--surface)); }
+  .text-available { color: hsl(var(--available)); }
+  .bg-available { background-color: hsl(var(--available)); }
+  .bg-soon { background-color: hsl(var(--soon)); }
+  .shadow-card { box-shadow: var(--shadow-card); }
   .shadow-elegant { box-shadow: var(--shadow-elegant); }
-  .shadow-gold { box-shadow: var(--shadow-gold); }
   .transition-smooth { transition: var(--transition-smooth); }
 
   .hover-lift {
     transition: var(--transition-smooth);
   }
   .hover-lift:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-elegant);
   }
 
-  .marquee {
-    animation: marquee 40s linear infinite;
-  }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
   @keyframes fade-up {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .animate-fade-up { animation: fade-up 0.8s ease-out both; }
+  .animate-fade-up { animation: fade-up 0.6s ease-out both; }
+
+  /* Variantes específicas del tema premium (T3) que invierten secciones */
+  [data-theme="t3"] .panel-dark {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
 }
