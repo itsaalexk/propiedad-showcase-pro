@@ -40,14 +40,14 @@ export const ContactButtons = ({ whatsapp, email, title, size = "md" }: CBProps)
         href={buildWhatsappLink(whatsapp, title)}
         target="_blank"
         rel="noopener noreferrer"
-        className={`flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-[#25D366] text-white ${padding} text-sm font-medium hover:opacity-90 transition-smooth`}
+        className={`flex-1 inline-flex items-center justify-center gap-2 rounded-pill bg-[#25D366] text-white ${padding} text-sm font-semibold hover:opacity-90 transition-smooth`}
       >
         <MessageCircle className="h-4 w-4" />
         WhatsApp
       </a>
       <a
         href={buildEmailLink(email, title)}
-        className={`flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-primary text-primary-foreground ${padding} text-sm font-medium hover:opacity-90 transition-smooth`}
+        className={`flex-1 inline-flex items-center justify-center gap-2 rounded-pill bg-primary text-primary-foreground ${padding} text-sm font-semibold hover:opacity-90 transition-smooth`}
       >
         <Mail className="h-4 w-4" />
         Enviar correo
@@ -61,21 +61,47 @@ export const SiteHeader = () => {
   const { pathname } = useLocation();
   const base = `/${theme}`;
   const links = [
-    { to: `${base}`, label: "Viviendas" },
+    { to: `${base}`, label: "Inicio" },
+    { to: `${base}/viviendas`, label: "Viviendas" },
     { to: `${base}/propietarios`, label: "Propietarios" },
     { to: `${base}/sobre-nosotros`, label: "Sobre nosotros" },
     { to: `${base}/contacto`, label: "Contacto" },
   ];
 
-  return (
-    <header className="sticky top-0 z-30 bg-background/95 backdrop-blur border-b border-border">
-      <div className="container mx-auto h-16 flex items-center justify-between">
-        <Link to={base} className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-md bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-display text-lg leading-none">W</span>
-          </div>
-          <span className="font-display text-xl text-foreground">Walsadua</span>
+  // Logos distintos por tema
+  const Logo = () => {
+    if (theme === "t2") {
+      return (
+        <Link to={base} className="flex items-baseline gap-1">
+          <span className="font-display italic text-2xl text-primary leading-none">W</span>
+          <span className="font-display text-xl text-foreground tracking-wide">alsadua</span>
         </Link>
+      );
+    }
+    if (theme === "t3") {
+      return (
+        <Link to={base} className="flex items-center gap-2.5">
+          <div className="h-9 w-9 rounded-pill bg-primary flex items-center justify-center ring-1 ring-accent/40">
+            <span className="text-accent font-display text-base leading-none">W</span>
+          </div>
+          <span className="font-display text-xl text-foreground tracking-tight uppercase">Walsadua</span>
+        </Link>
+      );
+    }
+    return (
+      <Link to={base} className="flex items-center gap-2">
+        <div className="h-9 w-9 rounded-card bg-primary flex items-center justify-center">
+          <span className="text-primary-foreground font-display text-lg leading-none">W</span>
+        </div>
+        <span className="font-display text-xl text-foreground">Walsadua</span>
+      </Link>
+    );
+  };
+
+  return (
+    <header className="sticky top-0 z-30 bg-background/90 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto h-18 py-3 flex items-center justify-between">
+        <Logo />
         <nav className="hidden md:flex items-center gap-1">
           {links.map((l) => {
             const active = pathname === l.to;
@@ -83,7 +109,7 @@ export const SiteHeader = () => {
               <Link
                 key={l.to}
                 to={l.to}
-                className={`px-4 py-2 text-sm font-medium rounded-md transition-smooth ${
+                className={`px-4 py-2 text-sm font-medium rounded-pill transition-smooth ${
                   active ? "text-primary bg-secondary" : "text-foreground/70 hover:text-primary hover:bg-secondary"
                 }`}
               >
@@ -93,12 +119,12 @@ export const SiteHeader = () => {
           })}
         </nav>
         <div className="flex items-center gap-3">
-          <a href="tel:+34600000000" className="hidden sm:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-smooth">
+          <a href="tel:+34600000000" className="hidden lg:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-smooth">
             <Phone className="h-4 w-4" /> 600 000 000
           </a>
           <Link
             to={`${base}/contacto`}
-            className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:opacity-90 transition-smooth"
+            className="inline-flex items-center gap-2 rounded-pill bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:opacity-90 transition-smooth"
           >
             Solicitar info
           </Link>
@@ -128,7 +154,7 @@ export const SiteFooter = () => {
         <div>
           <h4 className="text-sm font-semibold mb-4 uppercase tracking-wider text-accent">Navegación</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/70">
-            <li><Link to={base} className="hover:text-accent transition-smooth">Viviendas disponibles</Link></li>
+            <li><Link to={`${base}/viviendas`} className="hover:text-accent transition-smooth">Viviendas disponibles</Link></li>
             <li><Link to={`${base}/propietarios`} className="hover:text-accent transition-smooth">Para propietarios</Link></li>
             <li><Link to={`${base}/sobre-nosotros`} className="hover:text-accent transition-smooth">Sobre nosotros</Link></li>
             <li><Link to={`${base}/contacto`} className="hover:text-accent transition-smooth">Contacto</Link></li>
@@ -168,28 +194,31 @@ export const ThemeSwitcher = () => {
   const { pathname } = useLocation();
   const subpath = pathname.replace(/^\/(t1|t2|t3)/, "") || "";
 
-  const items: { k: ThemeKey; label: string }[] = [
-    { k: "t1", label: "Esencial" },
-    { k: "t2", label: "Editorial" },
-    { k: "t3", label: "Premium" },
+  const items: { k: ThemeKey; label: string; sub: string }[] = [
+    { k: "t1", label: "Esencial", sub: "Moderno" },
+    { k: "t2", label: "Editorial", sub: "Clásico" },
+    { k: "t3", label: "Premium", sub: "Audaz" },
   ];
 
   return (
-    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-background/95 backdrop-blur-md border border-border rounded-full shadow-elegant px-2 py-1.5 flex items-center gap-1">
-      <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground px-3 hidden sm:inline">
+    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-background/95 backdrop-blur-xl border border-border rounded-pill shadow-elegant px-2 py-1.5 flex items-center gap-1">
+      <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground px-3 hidden sm:inline">
         Plantilla
       </span>
       {items.map((it) => (
         <Link
           key={it.k}
           to={`/${it.k}${subpath}`}
-          className={`text-xs px-4 py-2 rounded-full transition-smooth ${
+          className={`text-xs px-4 py-2 rounded-pill transition-smooth flex flex-col items-center leading-tight ${
             current === it.k
               ? "bg-primary text-primary-foreground"
               : "text-foreground hover:bg-secondary"
           }`}
         >
-          {it.label}
+          <span className="font-semibold">{it.label}</span>
+          <span className={`text-[9px] uppercase tracking-wider ${current === it.k ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+            {it.sub}
+          </span>
         </Link>
       ))}
     </div>
