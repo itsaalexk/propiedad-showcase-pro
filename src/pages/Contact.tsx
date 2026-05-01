@@ -1,105 +1,101 @@
-import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Mail, Phone, MapPin, MessageCircle, Instagram, Facebook, Twitter, Youtube } from "lucide-react";
-import { TemplateSwitcher } from "@/components/Shared";
+import { Mail, Phone, MapPin, MessageCircle, Clock, Send } from "lucide-react";
+import { SiteLayout } from "@/components/Site";
 
 const Contact = () => {
-  const { template } = useParams();
-  const t = (Number(template) || 1) as 1 | 2 | 3;
-  const isDark = t === 3;
-
   return (
-    <div className={`min-h-screen ${isDark ? "bg-[#0e0c0a] text-white" : "bg-background text-foreground"}`}>
-      <header className={`border-b ${isDark ? "border-white/10" : "border-border"}`}>
-        <div className="container mx-auto py-5 flex items-center justify-between">
-          <Link to={`/template/${t}`} className="flex items-center gap-2">
-            <div className={`h-8 w-8 rounded-lg ${isDark ? "bg-accent" : "gradient-warm"}`} />
-            <span className="font-display text-2xl font-semibold">Walsadua</span>
-          </Link>
-          <Link to={`/template/${t}`} className="inline-flex items-center gap-2 text-sm hover:text-accent transition-smooth">
-            <ArrowLeft className="h-4 w-4" /> Volver
-          </Link>
-        </div>
-      </header>
-
-      <section className="container mx-auto py-20">
-        <div className="max-w-3xl">
-          <span className={`text-xs uppercase tracking-[0.3em] ${isDark ? "text-accent" : "text-muted-foreground"}`}>Contacto</span>
-          <h1 className="font-display text-5xl md:text-7xl mt-4 mb-6 text-balance">
-            Hablemos de tu <em className="text-accent not-italic">vivienda.</em>
+    <SiteLayout>
+      <section className="bg-primary text-primary-foreground">
+        <div className="container mx-auto py-16">
+          <span className="text-xs uppercase tracking-[0.3em] text-accent">Contacto</span>
+          <h1 className="font-display text-4xl md:text-5xl mt-3 max-w-3xl text-balance">
+            Hablemos de tu próximo hogar.
           </h1>
-          <p className={`text-lg ${isDark ? "text-white/70" : "text-muted-foreground"}`}>
-            Somos un equipo pequeño y atento. Si eres propietario y quieres publicar tu vivienda, o si tienes cualquier duda, escríbenos. Respondemos en menos de 24h.
+          <p className="mt-4 text-primary-foreground/80 max-w-2xl">
+            Nuestro equipo te atiende de lunes a viernes. Elige el canal que prefieras: te respondemos en menos de 24h.
           </p>
         </div>
       </section>
 
-      <section className="container mx-auto pb-24 grid lg:grid-cols-2 gap-10">
-        {/* FORM */}
-        <form
-          onSubmit={(e) => { e.preventDefault(); window.location.href = "mailto:hola@walsadua.com"; }}
-          className={`rounded-3xl p-8 md:p-10 space-y-5 ${isDark ? "bg-white/5 border border-white/10" : "bg-card border border-border shadow-soft"}`}
-        >
-          <h2 className="font-display text-2xl mb-2">Envíanos un mensaje</h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label className="text-xs uppercase tracking-wider opacity-70">Nombre</label>
-              <input required className={`mt-2 w-full rounded-xl px-4 py-3 outline-none ${isDark ? "bg-white/5 border border-white/10" : "bg-background border border-border"}`} />
-            </div>
-            <div>
-              <label className="text-xs uppercase tracking-wider opacity-70">Email</label>
-              <input required type="email" className={`mt-2 w-full rounded-xl px-4 py-3 outline-none ${isDark ? "bg-white/5 border border-white/10" : "bg-background border border-border"}`} />
-            </div>
-          </div>
-          <div>
-            <label className="text-xs uppercase tracking-wider opacity-70">Asunto</label>
-            <select className={`mt-2 w-full rounded-xl px-4 py-3 outline-none ${isDark ? "bg-white/5 border border-white/10" : "bg-background border border-border"}`}>
-              <option>Quiero publicar mi vivienda</option>
-              <option>Información general</option>
-              <option>Soporte técnico</option>
-              <option>Prensa y colaboraciones</option>
-            </select>
-          </div>
-          <div>
-            <label className="text-xs uppercase tracking-wider opacity-70">Mensaje</label>
-            <textarea rows={5} className={`mt-2 w-full rounded-xl px-4 py-3 outline-none resize-none ${isDark ? "bg-white/5 border border-white/10" : "bg-background border border-border"}`} />
-          </div>
-          <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground py-4 font-medium hover:opacity-90 transition-smooth">
-            Enviar mensaje
-          </button>
-        </form>
-
+      <section className="container mx-auto py-16 grid lg:grid-cols-3 gap-8">
         {/* INFO */}
-        <div className="space-y-6">
-          <a href="https://wa.me/34600000000" target="_blank" rel="noreferrer" className={`block rounded-2xl p-6 hover-lift ${isDark ? "bg-white/5 border border-white/10" : "bg-card border border-border"}`}>
-            <MessageCircle className="h-7 w-7 text-[#25D366] mb-3" />
-            <h3 className="font-display text-xl mb-1">WhatsApp directo</h3>
-            <p className={`text-sm ${isDark ? "text-white/60" : "text-muted-foreground"}`}>+34 600 000 000 — Lun a Vie, 9h–19h</p>
-          </a>
-          <a href="mailto:hola@walsadua.com" className={`block rounded-2xl p-6 hover-lift ${isDark ? "bg-white/5 border border-white/10" : "bg-card border border-border"}`}>
-            <Mail className="h-7 w-7 text-accent mb-3" />
-            <h3 className="font-display text-xl mb-1">Correo electrónico</h3>
-            <p className={`text-sm ${isDark ? "text-white/60" : "text-muted-foreground"}`}>hola@walsadua.com</p>
-          </a>
-          <div className={`rounded-2xl p-6 ${isDark ? "bg-white/5 border border-white/10" : "bg-card border border-border"}`}>
-            <MapPin className="h-7 w-7 text-accent mb-3" />
-            <h3 className="font-display text-xl mb-1">Oficina</h3>
-            <p className={`text-sm ${isDark ? "text-white/60" : "text-muted-foreground"}`}>Calle Imaginaria 12, 3º · 28013 Madrid</p>
+        <div className="space-y-4">
+          <div className="bg-card border border-border rounded-lg p-6 shadow-card">
+            <Phone className="h-7 w-7 text-primary mb-3" />
+            <h3 className="font-display text-lg mb-1">Teléfono</h3>
+            <a href="tel:+34600000000" className="text-foreground hover:text-primary transition-smooth">+34 600 000 000</a>
+            <p className="text-xs text-muted-foreground mt-2">Lun a Vie · 9h–19h</p>
           </div>
-          <div className={`rounded-2xl p-6 ${isDark ? "bg-white/5 border border-white/10" : "bg-card border border-border"}`}>
-            <h3 className="font-display text-xl mb-4">Síguenos</h3>
-            <div className="flex gap-3">
-              {[Instagram, Facebook, Twitter, Youtube].map((Ic, i) => (
-                <a key={i} href="#" className={`h-11 w-11 rounded-full flex items-center justify-center transition-smooth ${isDark ? "border border-white/20 hover:bg-accent hover:border-accent hover:text-accent-foreground" : "border border-border hover:bg-primary hover:text-primary-foreground"}`}>
-                  <Ic className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
+          <a href="https://wa.me/34600000000" target="_blank" rel="noreferrer" className="block bg-card border border-border rounded-lg p-6 shadow-card hover-lift">
+            <MessageCircle className="h-7 w-7 text-[#25D366] mb-3" />
+            <h3 className="font-display text-lg mb-1">WhatsApp directo</h3>
+            <p className="text-foreground">+34 600 000 000</p>
+            <p className="text-xs text-muted-foreground mt-2">Respuesta inmediata en horario comercial</p>
+          </a>
+          <a href="mailto:info@walsadua.com" className="block bg-card border border-border rounded-lg p-6 shadow-card hover-lift">
+            <Mail className="h-7 w-7 text-primary mb-3" />
+            <h3 className="font-display text-lg mb-1">Correo electrónico</h3>
+            <p className="text-foreground">info@walsadua.com</p>
+            <p className="text-xs text-muted-foreground mt-2">Respuesta en menos de 24h</p>
+          </a>
+          <div className="bg-card border border-border rounded-lg p-6 shadow-card">
+            <MapPin className="h-7 w-7 text-primary mb-3" />
+            <h3 className="font-display text-lg mb-1">Oficina</h3>
+            <p className="text-foreground">Calle Mayor 12, 3º</p>
+            <p className="text-foreground">28013 Madrid</p>
+            <p className="text-xs text-muted-foreground mt-2 flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Visitas con cita previa</p>
           </div>
         </div>
-      </section>
 
-      <TemplateSwitcher current={t} />
-    </div>
+        {/* FORM */}
+        <form
+          onSubmit={(e) => { e.preventDefault(); window.location.href = "mailto:info@walsadua.com"; }}
+          className="lg:col-span-2 bg-card border border-border rounded-lg p-8 md:p-10 shadow-card space-y-5"
+        >
+          <div>
+            <h2 className="font-display text-2xl">Escríbenos</h2>
+            <p className="text-sm text-muted-foreground mt-1">Cuéntanos qué buscas y nos pondremos en contacto contigo.</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nombre completo *</label>
+              <input required className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth" />
+            </div>
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email *</label>
+              <input required type="email" className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth" />
+            </div>
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Teléfono</label>
+              <input type="tel" className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth" />
+            </div>
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Asunto *</label>
+              <select required className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth">
+                <option>Información sobre una vivienda</option>
+                <option>Soy propietario y quiero saber más</option>
+                <option>Concertar una visita</option>
+                <option>Otra consulta</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Mensaje *</label>
+            <textarea required rows={6} className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth resize-none" />
+          </div>
+
+          <label className="flex items-start gap-2 text-xs text-muted-foreground">
+            <input type="checkbox" required className="mt-0.5" />
+            <span>He leído y acepto la política de privacidad de Walsadua.</span>
+          </label>
+
+          <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-md bg-primary text-primary-foreground px-8 py-3.5 text-sm font-medium hover:opacity-90 transition-smooth">
+            <Send className="h-4 w-4" /> Enviar mensaje
+          </button>
+        </form>
+      </section>
+    </SiteLayout>
   );
 };
 
