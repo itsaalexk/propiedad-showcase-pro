@@ -131,6 +131,7 @@ export const SiteFooter = () => {
           <ul className="space-y-2 text-sm text-primary-foreground/70">
             <li><Link to={`${base}/viviendas`} className="hover:text-accent transition-smooth">Viviendas disponibles</Link></li>
             <li><Link to={`${base}/propietarios`} className="hover:text-accent transition-smooth">Para propietarios</Link></li>
+            <li><Link to={`${base}/vender`} className="hover:text-accent transition-smooth">Vender tu propiedad</Link></li>
             <li><Link to={`${base}/sobre-nosotros`} className="hover:text-accent transition-smooth">Sobre nosotros</Link></li>
             <li><Link to={`${base}/contacto`} className="hover:text-accent transition-smooth">Contacto</Link></li>
           </ul>
