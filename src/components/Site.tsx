@@ -163,41 +163,19 @@ export const SiteFooter = () => {
   );
 };
 
-export const ThemeSwitcher = () => {
-  const current = useTheme();
-  const { pathname } = useLocation();
-  const subpath = pathname.replace(/^\/(t1|t2|t3)/, "") || "";
-
-  const items: { k: ThemeKey; label: string; sub: string }[] = [
-    { k: "t1", label: "Esencial", sub: "Moderno" },
-    { k: "t2", label: "Editorial", sub: "Clásico" },
-    { k: "t3", label: "Premium", sub: "Audaz" },
-  ];
-
-  return (
-    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-background/95 backdrop-blur-xl border border-border rounded-pill shadow-elegant px-2 py-1.5 flex items-center gap-1">
-      <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground px-3 hidden sm:inline">
-        Plantilla
-      </span>
-      {items.map((it) => (
-        <Link
-          key={it.k}
-          to={`/${it.k}${subpath}`}
-          className={`text-xs px-4 py-2 rounded-pill transition-smooth flex flex-col items-center leading-tight ${
-            current === it.k
-              ? "bg-primary text-primary-foreground"
-              : "text-foreground hover:bg-secondary"
-          }`}
-        >
-          <span className="font-semibold">{it.label}</span>
-          <span className={`text-[9px] uppercase tracking-wider ${current === it.k ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
-            {it.sub}
-          </span>
-        </Link>
-      ))}
-    </div>
-  );
-};
+export const WhatsAppFab = () => (
+  <a
+    href={`https://wa.me/${CONTACT_WHATSAPP.replace(/\D/g, "")}?text=${encodeURIComponent(
+      "Hola, me gustaría recibir más información sobre inmoinversión."
+    )}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-pill bg-[#25D366] text-white flex items-center justify-center shadow-elegant hover:scale-105 transition-spring"
+  >
+    <MessageCircle className="h-7 w-7" />
+  </a>
+);
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -209,7 +187,7 @@ export const SiteLayout = ({ children }: LayoutProps) => {
       <SiteHeader />
       <main className="flex-1">{children}</main>
       <SiteFooter />
-      <ThemeSwitcher />
+      <WhatsAppFab />
     </div>
   );
 };
