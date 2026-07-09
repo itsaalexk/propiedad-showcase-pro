@@ -35,7 +35,7 @@ export const properties: Property[] = [
   {
     id: "1",
     slug: "loft-luminoso-centro-madrid",
-    ref: "WAL-001",
+    ref: "INM-001",
     title: "Loft Luminoso en el Centro",
     type: "Apartamento",
     status: "disponible",
@@ -60,7 +60,7 @@ export const properties: Property[] = [
   {
     id: "2",
     slug: "villa-mediterranea-piscina-marbella",
-    ref: "WAL-002",
+    ref: "INM-002",
     title: "Villa Mediterránea con Piscina",
     type: "Villa",
     status: "disponible",
@@ -85,7 +85,7 @@ export const properties: Property[] = [
   {
     id: "3",
     slug: "townhouse-jardin-barcelona",
-    ref: "WAL-003",
+    ref: "INM-003",
     title: "Townhouse con Jardín Urbano",
     type: "Adosado",
     status: "proximamente",
@@ -111,7 +111,7 @@ export const properties: Property[] = [
   {
     id: "4",
     slug: "atico-vistas-skyline-valencia",
-    ref: "WAL-004",
+    ref: "INM-004",
     title: "Ático con Vistas al Skyline",
     type: "Ático",
     status: "disponible",
@@ -136,7 +136,7 @@ export const properties: Property[] = [
   {
     id: "5",
     slug: "casa-piedra-vinedos-rioja",
-    ref: "WAL-005",
+    ref: "INM-005",
     title: "Casa de Piedra entre Viñedos",
     type: "Casa rural",
     status: "disponible",
@@ -161,7 +161,7 @@ export const properties: Property[] = [
   {
     id: "6",
     slug: "casa-frente-mar-cadiz",
-    ref: "WAL-006",
+    ref: "INM-006",
     title: "Casa Frente al Mar",
     type: "Casa",
     status: "reservada",
