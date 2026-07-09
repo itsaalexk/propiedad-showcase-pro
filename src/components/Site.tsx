@@ -59,6 +59,7 @@ export const SiteHeader = () => {
     { to: `${base}`, label: "Inicio" },
     { to: `${base}/viviendas`, label: "Viviendas" },
     { to: `${base}/propietarios`, label: "Propietarios" },
+    { to: `${base}/vender`, label: "Vender" },
     { to: `${base}/sobre-nosotros`, label: "Sobre nosotros" },
     { to: `${base}/contacto`, label: "Contacto" },
   ];
