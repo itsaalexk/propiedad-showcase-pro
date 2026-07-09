@@ -28,6 +28,7 @@ const App = () => (
           <Route path="/:theme/vivienda/:slug" element={<PropertyDetail />} />
           <Route path="/:theme/contacto" element={<Contact />} />
           <Route path="/:theme/propietarios" element={<Owners />} />
+          <Route path="/:theme/vender" element={<Sell />} />
           <Route path="/:theme/sobre-nosotros" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
