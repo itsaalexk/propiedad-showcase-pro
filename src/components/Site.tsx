@@ -120,7 +120,7 @@ export const SiteHeader = () => {
         </nav>
         <div className="flex items-center gap-3">
           <a href="tel:+34675832994" className="hidden lg:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-smooth">
-            <Phone className="h-4 w-4" /> 600 000 000
+            <Phone className="h-4 w-4" /> 675 83 29 94
           </a>
           <Link
             to={`${base}/contacto`}
