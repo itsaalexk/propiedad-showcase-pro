@@ -18,6 +18,12 @@ const STEPS = [
   { icon: Coins, n: "4", t: "Tú cobras la rentabilidad", d: "Recibes tus ingresos todos los meses de forma pasiva y con total tranquilidad." },
 ];
 
+const PRODUCTS = [
+  { icon: KeyRound, t: "Inversión llave en mano para alquiler", d: "Adquirimos, reformamos y gestionamos el inmueble por ti. Tú recibes una rentabilidad por alquiler de forma totalmente pasiva." },
+  { icon: Wrench, t: "Comprar, reformar y vender", d: "Detectamos oportunidades, las reformamos con criterio y las vendemos con plusvalía. Una inversión con horizonte definido." },
+  { icon: PieChart, t: "Participaciones en proyectos", d: "Participa en proyectos inmobiliarios concretos con una entrada accesible y comparte los beneficios de cada operación." },
+];
+
 const Home = () => {
   const theme = useTheme();
   const featured = properties.filter((p) => p.status !== "reservada").slice(0, 6);
