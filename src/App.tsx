@@ -9,7 +9,7 @@ import Home from "./pages/Home.tsx";
 import Listings from "./pages/Listings.tsx";
 import PropertyDetail from "./pages/PropertyDetail.tsx";
 import Contact from "./pages/Contact.tsx";
-import Owners from "./pages/Owners.tsx";
+
 import Sell from "./pages/Sell.tsx";
 import About from "./pages/About.tsx";
 
@@ -27,7 +27,7 @@ const App = () => (
           <Route path="/:theme/viviendas" element={<Listings />} />
           <Route path="/:theme/vivienda/:slug" element={<PropertyDetail />} />
           <Route path="/:theme/contacto" element={<Contact />} />
-          <Route path="/:theme/propietarios" element={<Owners />} />
+          
           <Route path="/:theme/vender" element={<Sell />} />
           <Route path="/:theme/sobre-nosotros" element={<About />} />
           <Route path="*" element={<NotFound />} />

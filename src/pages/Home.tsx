@@ -60,8 +60,8 @@ const Home = () => {
               <Link to={`/${theme}/viviendas`} className="inline-flex items-center gap-3 rounded-pill bg-accent text-accent-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
                 Explorar la colección <ArrowUpRight className="h-5 w-5" />
               </Link>
-              <Link to={`/${theme}/propietarios`} className="inline-flex items-center gap-3 rounded-pill border border-primary-foreground/30 text-primary-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-primary-foreground hover:text-primary transition-smooth">
-                Soy propietario
+              <Link to={`/${theme}/vender`} className="inline-flex items-center gap-3 rounded-pill border border-primary-foreground/30 text-primary-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-primary-foreground hover:text-primary transition-smooth">
+                Quiero vender
               </Link>
             </div>
           </div>
