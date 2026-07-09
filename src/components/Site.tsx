@@ -63,35 +63,14 @@ export const SiteHeader = () => {
     { to: `${base}/contacto`, label: "Contacto" },
   ];
 
-  // Logos distintos por tema
-  const Logo = () => {
-    if (theme === "t2") {
-      return (
-        <Link to={base} className="flex items-baseline gap-1">
-          <span className="font-display italic text-2xl text-primary leading-none">W</span>
-          <span className="font-display text-xl text-foreground tracking-wide">alsadua</span>
-        </Link>
-      );
-    }
-    if (theme === "t3") {
-      return (
-        <Link to={base} className="flex items-center gap-2.5">
-          <div className="h-9 w-9 rounded-pill bg-primary flex items-center justify-center ring-1 ring-accent/40">
-            <span className="text-accent font-display text-base leading-none">W</span>
-          </div>
-          <span className="font-display text-xl text-foreground tracking-tight uppercase">inmoinversión</span>
-        </Link>
-      );
-    }
-    return (
-      <Link to={base} className="flex items-center gap-2">
-        <div className="h-9 w-9 rounded-card bg-primary flex items-center justify-center">
-          <span className="text-primary-foreground font-display text-lg leading-none">W</span>
-        </div>
-        <span className="font-display text-xl text-foreground">inmoinversión</span>
-      </Link>
-    );
-  };
+  const Logo = () => (
+    <Link to={base} className="flex items-center gap-2.5">
+      <div className="h-9 w-9 rounded-pill bg-primary flex items-center justify-center ring-1 ring-accent/40">
+        <span className="text-accent font-display text-base leading-none">II</span>
+      </div>
+      <span className="font-display text-xl text-foreground tracking-tight lowercase">inmoinversión</span>
+    </Link>
+  );
 
   return (
     <header className="sticky top-0 z-30 bg-background/90 backdrop-blur-md border-b border-border">
