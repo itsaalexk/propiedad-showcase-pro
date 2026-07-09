@@ -49,7 +49,7 @@ const Listings = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" />
         <div className="relative container mx-auto py-16 md:py-20">
-          <span className="text-xs uppercase tracking-[0.3em] text-accent">Inmobiliaria Walsadua</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-accent">Inmobiliaria inmoinversión</span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mt-3 max-w-3xl text-balance">
             Viviendas seleccionadas, propietarios atendidos.
           </h1>
@@ -191,7 +191,7 @@ const Listings = () => {
                 <h2 className="font-display text-2xl">
                   {filtered.length} vivienda{filtered.length !== 1 && "s"}
                 </h2>
-                <p className="text-sm text-muted-foreground mt-1">Selección actualizada por el equipo de Walsadua</p>
+                <p className="text-sm text-muted-foreground mt-1">Selección actualizada por el equipo de inmoinversión</p>
               </div>
               <button
                 onClick={() => setFiltersOpen((v) => !v)}

@@ -161,7 +161,7 @@ const PropertyDetail = () => {
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground">Gestionado por</div>
-                  <div className="font-medium">Walsadua · {property.owner.name}</div>
+                  <div className="font-medium">inmoinversión · {property.owner.name}</div>
                 </div>
               </div>
               <p className="text-sm text-muted-foreground mb-5">
@@ -181,7 +181,7 @@ const PropertyDetail = () => {
             <div className="bg-surface border border-border rounded-lg p-5">
               <h3 className="font-display text-base mb-2">¿Eres propietario?</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Descubre cómo Walsadua puede gestionar tu vivienda.
+                Descubre cómo inmoinversión puede gestionar tu vivienda.
               </p>
               <Link to={`/${theme}/propietarios`} className="text-sm text-primary font-medium hover:underline">
                 Conoce nuestro servicio →

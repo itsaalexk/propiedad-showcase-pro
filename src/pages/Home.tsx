@@ -125,7 +125,7 @@ const Home = () => {
             </div>
             <div className="md:col-span-7 md:columns-2 gap-8 text-foreground/75 leading-relaxed text-base">
               <p className="mb-4 first-letter:font-display first-letter:text-5xl first-letter:float-left first-letter:mr-3 first-letter:leading-none first-letter:text-primary">
-                Walsadua nace de la convicción de que una vivienda merece más que un anuncio. Llevamos más de quince años acompañando a propietarios particulares con una gestión cuidada, transparente y profesional.
+                inmoinversión nace de la convicción de que una vivienda merece más que un anuncio. Llevamos más de quince años acompañando a propietarios particulares con una gestión cuidada, transparente y profesional.
               </p>
               <p className="mb-4">
                 Hoy presentamos un catálogo seleccionado de viviendas en toda España, con un equipo pequeño y comprometido que trata cada propiedad como si fuera la suya.
@@ -177,7 +177,7 @@ const Home = () => {
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-8">
                 <div className="h-px w-12 bg-accent" />
-                <span className="text-[10px] uppercase tracking-[0.4em] text-accent">Walsadua · Estd. 2009</span>
+                <span className="text-[10px] uppercase tracking-[0.4em] text-accent">inmoinversión · Estd. 2009</span>
               </div>
               <h1 className="font-display text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] tracking-tight">
                 Propiedades<br />
@@ -251,7 +251,7 @@ const Home = () => {
         <section className="bg-primary text-primary-foreground py-24">
           <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">Walsadua</span>
+              <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">inmoinversión</span>
               <h2 className="font-display text-4xl md:text-6xl uppercase mt-4 leading-none">
                 No vendemos casas.<br />
                 <span className="italic text-accent font-normal">Cuidamos legados.</span>
@@ -295,7 +295,7 @@ const Home = () => {
                 <Link to={`/${theme}/contacto`} className="inline-flex items-center gap-2 rounded-pill bg-accent text-accent-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
                   Solicitar conversación <ArrowUpRight className="h-4 w-4" />
                 </Link>
-                <a href="tel:+34600000000" className="inline-flex items-center gap-2 rounded-pill border border-primary-foreground/30 text-primary-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-primary-foreground hover:text-primary transition-smooth">
+                <a href="tel:+34675832994" className="inline-flex items-center gap-2 rounded-pill border border-primary-foreground/30 text-primary-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-primary-foreground hover:text-primary transition-smooth">
                   <Phone className="h-4 w-4" /> Llamar ahora
                 </a>
               </div>
@@ -325,7 +325,7 @@ const Home = () => {
             Encuentra tu próximo hogar entre nuestra <span className="text-accent">selección curada</span>.
           </h1>
           <p className="mt-6 text-primary-foreground/80 max-w-2xl text-lg md:text-xl">
-            Walsadua presenta viviendas únicas de propietarios particulares en toda España. Profesionales, cercanos y siempre disponibles.
+            inmoinversión presenta viviendas únicas de propietarios particulares en toda España. Profesionales, cercanos y siempre disponibles.
           </p>
 
           {/* BUSCADOR rápido */}
@@ -396,7 +396,7 @@ const Home = () => {
       <section className="bg-surface py-24">
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="aspect-[4/3] rounded-card overflow-hidden order-2 md:order-1">
-            <img src={heroVilla} alt="Sobre Walsadua" loading="lazy" className="w-full h-full object-cover" />
+            <img src={heroVilla} alt="Sobre inmoinversión" loading="lazy" className="w-full h-full object-cover" />
           </div>
           <div className="order-1 md:order-2">
             <span className="chip"><Heart className="h-3 w-3 text-accent" /> Sobre nosotros</span>
@@ -447,7 +447,7 @@ const Home = () => {
               <Link to={`/${theme}/contacto`} className="inline-flex items-center gap-2 rounded-pill bg-accent text-accent-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition-smooth">
                 Solicitar valoración <ArrowRight className="h-4 w-4" />
               </Link>
-              <a href="mailto:info@walsadua.com" className="inline-flex items-center gap-2 rounded-pill border border-primary-foreground/30 text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:bg-primary-foreground/10 transition-smooth">
+              <a href="mailto:info@inmoinversion.com" className="inline-flex items-center gap-2 rounded-pill border border-primary-foreground/30 text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:bg-primary-foreground/10 transition-smooth">
                 <Mail className="h-4 w-4" /> Escríbenos
               </a>
             </div>

@@ -17,7 +17,7 @@ export const useTheme = (): ThemeKey => {
 
 export const buildWhatsappLink = (phone: string, title: string) =>
   `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(
-    `Hola, me interesa la vivienda "${title}" que he visto en Walsadua.`
+    `Hola, me interesa la vivienda "${title}" que he visto en inmoinversión.`
   )}`;
 
 export const buildEmailLink = (email: string, title: string) =>
@@ -84,7 +84,7 @@ export const SiteHeader = () => {
           <div className="h-9 w-9 rounded-pill bg-primary flex items-center justify-center ring-1 ring-accent/40">
             <span className="text-accent font-display text-base leading-none">W</span>
           </div>
-          <span className="font-display text-xl text-foreground tracking-tight uppercase">Walsadua</span>
+          <span className="font-display text-xl text-foreground tracking-tight uppercase">inmoinversión</span>
         </Link>
       );
     }
@@ -93,7 +93,7 @@ export const SiteHeader = () => {
         <div className="h-9 w-9 rounded-card bg-primary flex items-center justify-center">
           <span className="text-primary-foreground font-display text-lg leading-none">W</span>
         </div>
-        <span className="font-display text-xl text-foreground">Walsadua</span>
+        <span className="font-display text-xl text-foreground">inmoinversión</span>
       </Link>
     );
   };
@@ -119,7 +119,7 @@ export const SiteHeader = () => {
           })}
         </nav>
         <div className="flex items-center gap-3">
-          <a href="tel:+34600000000" className="hidden lg:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-smooth">
+          <a href="tel:+34675832994" className="hidden lg:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-smooth">
             <Phone className="h-4 w-4" /> 600 000 000
           </a>
           <Link
@@ -145,7 +145,7 @@ export const SiteFooter = () => {
             <div className="h-8 w-8 rounded-md bg-accent flex items-center justify-center">
               <span className="text-accent-foreground font-display text-lg leading-none">W</span>
             </div>
-            <span className="font-display text-xl">Walsadua</span>
+            <span className="font-display text-xl">inmoinversión</span>
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
             Inmobiliaria especializada en gestión y promoción de viviendas para propietarios particulares.
@@ -164,8 +164,8 @@ export const SiteFooter = () => {
           <h4 className="text-sm font-semibold mb-4 uppercase tracking-wider text-accent">Contacto</h4>
           <ul className="space-y-3 text-sm text-primary-foreground/70">
             <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 shrink-0" /> Calle Mayor 12, 28013 Madrid</li>
-            <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0" /> +34 600 000 000</li>
-            <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 shrink-0" /> info@walsadua.com</li>
+            <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0" /> +34 675 83 29 94</li>
+            <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 shrink-0" /> info@inmoinversion.com</li>
           </ul>
         </div>
         <div>
@@ -181,7 +181,7 @@ export const SiteFooter = () => {
       </div>
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto py-5 text-xs text-primary-foreground/50 flex flex-col md:flex-row justify-between gap-2">
-          <span>© {new Date().getFullYear()} Walsadua Inmobiliaria. Todos los derechos reservados.</span>
+          <span>© {new Date().getFullYear()} inmoinversión Inmobiliaria. Todos los derechos reservados.</span>
           <span>Aviso legal · Política de privacidad · Cookies</span>
         </div>
       </div>

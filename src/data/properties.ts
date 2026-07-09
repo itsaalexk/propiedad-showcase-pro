@@ -53,7 +53,7 @@ export const properties: Property[] = [
     features: ["Cocina equipada", "Calefacción central", "Ascensor", "Patio interior", "Suelo de madera", "Doble ventana"],
     highlights: ["Luz natural todo el día", "Edificio rehabilitado 2021", "A 5 min del metro Sol"],
     energyRating: "B",
-    owner: { name: "María L.", whatsapp: "+34600000001", email: "maria@walsadua.com" },
+    owner: { name: "María L.", whatsapp: "+34600000001", email: "maria@inmoinversion.com" },
   },
   {
     id: "2",
@@ -77,7 +77,7 @@ export const properties: Property[] = [
     features: ["Piscina privada", "Jardín 400m²", "Garaje 2 coches", "Aire acondicionado", "Domótica", "Trastero"],
     highlights: ["Parcela de 600m²", "A 10 min de la playa", "Urbanización privada"],
     energyRating: "A",
-    owner: { name: "Javier M.", whatsapp: "+34600000002", email: "javier@walsadua.com" },
+    owner: { name: "Javier M.", whatsapp: "+34600000002", email: "javier@inmoinversion.com" },
   },
   {
     id: "3",
@@ -102,7 +102,7 @@ export const properties: Property[] = [
     features: ["Jardín privado", "3 plantas", "Trastero", "Plaza aparcamiento", "Aerotermia", "Domótica básica"],
     highlights: ["Obra de 2020", "Eficiencia energética A", "Barrio residencial"],
     energyRating: "A",
-    owner: { name: "Lucía F.", whatsapp: "+34600000003", email: "lucia@walsadua.com" },
+    owner: { name: "Lucía F.", whatsapp: "+34600000003", email: "lucia@inmoinversion.com" },
   },
   {
     id: "4",
@@ -126,7 +126,7 @@ export const properties: Property[] = [
     features: ["Terraza 40m²", "Vistas panorámicas", "Conserje 24h", "Piscina comunitaria", "Gimnasio", "Aire acondicionado"],
     highlights: ["Planta 21", "Terraza envolvente", "Servicios premium"],
     energyRating: "A",
-    owner: { name: "Andrés R.", whatsapp: "+34600000004", email: "andres@walsadua.com" },
+    owner: { name: "Andrés R.", whatsapp: "+34600000004", email: "andres@inmoinversion.com" },
   },
   {
     id: "5",
@@ -150,7 +150,7 @@ export const properties: Property[] = [
     features: ["Chimenea", "Huerto", "Bodega", "1.500m² terreno", "Piscina ecológica", "Vigas de madera"],
     highlights: ["Rehabilitación integral", "Entre viñedos", "1.500m² de terreno"],
     energyRating: "C",
-    owner: { name: "Elena V.", whatsapp: "+34600000005", email: "elena@walsadua.com" },
+    owner: { name: "Elena V.", whatsapp: "+34600000005", email: "elena@inmoinversion.com" },
   },
   {
     id: "6",
@@ -174,7 +174,7 @@ export const properties: Property[] = [
     features: ["Primera línea de playa", "Piscina infinita", "Domótica integral", "Garaje 3 coches", "Suite principal", "Baño de mármol"],
     highlights: ["Primera línea", "Obra nueva 2023", "Acceso directo a la arena"],
     energyRating: "A",
-    owner: { name: "Carlos B.", whatsapp: "+34600000006", email: "carlos@walsadua.com" },
+    owner: { name: "Carlos B.", whatsapp: "+34600000006", email: "carlos@inmoinversion.com" },
   },
 ];
 

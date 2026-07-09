@@ -14,12 +14,12 @@ const About = () => {
 
       <section className="container mx-auto pb-16 grid md:grid-cols-2 gap-10 items-center">
         <div className="aspect-[4/3] rounded-lg overflow-hidden">
-          <img src={heroVilla} alt="Equipo Walsadua" loading="lazy" className="w-full h-full object-cover" />
+          <img src={heroVilla} alt="Equipo inmoinversión" loading="lazy" className="w-full h-full object-cover" />
         </div>
         <div>
           <h2 className="font-display text-3xl mb-5">Nuestra historia</h2>
           <p className="text-foreground/80 leading-relaxed mb-4">
-            Walsadua nace de la convicción de que una vivienda merece más que un anuncio. Llevamos más de quince años acompañando a propietarios particulares que buscan una gestión cuidada, transparente y profesional de su patrimonio.
+            inmoinversión nace de la convicción de que una vivienda merece más que un anuncio. Llevamos más de quince años acompañando a propietarios particulares que buscan una gestión cuidada, transparente y profesional de su patrimonio.
           </p>
           <p className="text-foreground/80 leading-relaxed">
             Hoy gestionamos un catálogo seleccionado de viviendas en toda España, con un equipo pequeño y comprometido que trata cada propiedad como si fuera la suya.
@@ -52,7 +52,7 @@ const About = () => {
         <p className="font-display text-2xl md:text-3xl max-w-3xl mx-auto leading-relaxed italic text-balance">
           "No vendemos casas. Acompañamos decisiones importantes."
         </p>
-        <div className="mt-6 text-sm uppercase tracking-[0.3em] text-muted-foreground">— Equipo Walsadua</div>
+        <div className="mt-6 text-sm uppercase tracking-[0.3em] text-muted-foreground">— Equipo inmoinversión</div>
       </section>
     </SiteLayout>
   );
