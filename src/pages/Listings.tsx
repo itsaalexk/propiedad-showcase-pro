@@ -218,6 +218,17 @@ const Listings = () => {
           </div>
         </div>
       </section>
+
+      {/* MAPA de propiedades (OpenStreetMap) */}
+      <section className="container mx-auto pb-16">
+        <div className="mb-6">
+          <span className="text-[10px] uppercase tracking-[0.4em] text-accent">Ubicaciones</span>
+          <h2 className="font-display text-3xl md:text-4xl mt-2">Encuentra las viviendas en el mapa</h2>
+          <p className="text-sm text-muted-foreground mt-1">Haz clic en un marcador para ver la propiedad y acceder a sus detalles.</p>
+        </div>
+        <PropertyMap properties={filtered} theme={theme} />
+      </section>
+
     </SiteLayout>
   );
 };
