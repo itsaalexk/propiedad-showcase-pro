@@ -1,19 +1,14 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Mail, MessageCircle, MapPin, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
 
-export type ThemeKey = "t1" | "t2" | "t3";
+export type ThemeKey = "t3";
 
-export const THEME_LABEL: Record<ThemeKey, string> = {
-  t1: "Esencial",
-  t2: "Editorial",
-  t3: "Premium",
-};
+// El proyecto usa un único diseño (Premium).
+export const useTheme = (): ThemeKey => "t3";
 
-export const useTheme = (): ThemeKey => {
-  const { theme } = useParams();
-  if (theme === "t2" || theme === "t3") return theme;
-  return "t1";
-};
+export const CONTACT_PHONE = "+34 675 83 29 94";
+export const CONTACT_WHATSAPP = "+34675832994";
+export const CONTACT_EMAIL = "info@inmoinversion.com";
 
 export const buildWhatsappLink = (phone: string, title: string) =>
   `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(
