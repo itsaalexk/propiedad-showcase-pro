@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { properties } from "@/data/properties";
 import { PropertyCard } from "@/components/PropertyCard";
 import { SiteLayout, useTheme } from "@/components/Site";
+import { PropertyMap } from "@/components/PropertyMap";
 import { Search, MapPin, Home, BedDouble, X, SlidersHorizontal } from "lucide-react";
 import heroVilla from "@/assets/hero-villa.jpg";
 
@@ -49,7 +50,7 @@ const Listings = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" />
         <div className="relative container mx-auto py-16 md:py-20">
-          <span className="text-xs uppercase tracking-[0.3em] text-accent">Inmobiliaria Walsadua</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-accent">Inmobiliaria inmoinversión</span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mt-3 max-w-3xl text-balance">
             Viviendas seleccionadas, propietarios atendidos.
           </h1>
@@ -191,7 +192,7 @@ const Listings = () => {
                 <h2 className="font-display text-2xl">
                   {filtered.length} vivienda{filtered.length !== 1 && "s"}
                 </h2>
-                <p className="text-sm text-muted-foreground mt-1">Selección actualizada por el equipo de Walsadua</p>
+                <p className="text-sm text-muted-foreground mt-1">Selección actualizada por el equipo de inmoinversión</p>
               </div>
               <button
                 onClick={() => setFiltersOpen((v) => !v)}
@@ -218,6 +219,17 @@ const Listings = () => {
           </div>
         </div>
       </section>
+
+      {/* MAPA de propiedades (OpenStreetMap) */}
+      <section className="container mx-auto pb-16">
+        <div className="mb-6">
+          <span className="text-[10px] uppercase tracking-[0.4em] text-accent">Ubicaciones</span>
+          <h2 className="font-display text-3xl md:text-4xl mt-2">Encuentra las viviendas en el mapa</h2>
+          <p className="text-sm text-muted-foreground mt-1">Haz clic en un marcador para ver la propiedad y acceder a sus detalles.</p>
+        </div>
+        <PropertyMap properties={filtered} theme={theme} />
+      </section>
+
     </SiteLayout>
   );
 };

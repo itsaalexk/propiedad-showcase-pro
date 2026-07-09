@@ -1,23 +1,18 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Mail, MessageCircle, MapPin, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
 
-export type ThemeKey = "t1" | "t2" | "t3";
+export type ThemeKey = "t3";
 
-export const THEME_LABEL: Record<ThemeKey, string> = {
-  t1: "Esencial",
-  t2: "Editorial",
-  t3: "Premium",
-};
+// El proyecto usa un único diseño (Premium).
+export const useTheme = (): ThemeKey => "t3";
 
-export const useTheme = (): ThemeKey => {
-  const { theme } = useParams();
-  if (theme === "t2" || theme === "t3") return theme;
-  return "t1";
-};
+export const CONTACT_PHONE = "+34 675 83 29 94";
+export const CONTACT_WHATSAPP = "+34675832994";
+export const CONTACT_EMAIL = "info@inmoinversion.com";
 
 export const buildWhatsappLink = (phone: string, title: string) =>
   `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(
-    `Hola, me interesa la vivienda "${title}" que he visto en Walsadua.`
+    `Hola, me interesa la vivienda "${title}" que he visto en inmoinversión.`
   )}`;
 
 export const buildEmailLink = (email: string, title: string) =>
@@ -68,35 +63,14 @@ export const SiteHeader = () => {
     { to: `${base}/contacto`, label: "Contacto" },
   ];
 
-  // Logos distintos por tema
-  const Logo = () => {
-    if (theme === "t2") {
-      return (
-        <Link to={base} className="flex items-baseline gap-1">
-          <span className="font-display italic text-2xl text-primary leading-none">W</span>
-          <span className="font-display text-xl text-foreground tracking-wide">alsadua</span>
-        </Link>
-      );
-    }
-    if (theme === "t3") {
-      return (
-        <Link to={base} className="flex items-center gap-2.5">
-          <div className="h-9 w-9 rounded-pill bg-primary flex items-center justify-center ring-1 ring-accent/40">
-            <span className="text-accent font-display text-base leading-none">W</span>
-          </div>
-          <span className="font-display text-xl text-foreground tracking-tight uppercase">Walsadua</span>
-        </Link>
-      );
-    }
-    return (
-      <Link to={base} className="flex items-center gap-2">
-        <div className="h-9 w-9 rounded-card bg-primary flex items-center justify-center">
-          <span className="text-primary-foreground font-display text-lg leading-none">W</span>
-        </div>
-        <span className="font-display text-xl text-foreground">Walsadua</span>
-      </Link>
-    );
-  };
+  const Logo = () => (
+    <Link to={base} className="flex items-center gap-2.5">
+      <div className="h-9 w-9 rounded-pill bg-primary flex items-center justify-center ring-1 ring-accent/40">
+        <span className="text-accent font-display text-base leading-none">II</span>
+      </div>
+      <span className="font-display text-xl text-foreground tracking-tight lowercase">inmoinversión</span>
+    </Link>
+  );
 
   return (
     <header className="sticky top-0 z-30 bg-background/90 backdrop-blur-md border-b border-border">
@@ -119,8 +93,8 @@ export const SiteHeader = () => {
           })}
         </nav>
         <div className="flex items-center gap-3">
-          <a href="tel:+34600000000" className="hidden lg:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-smooth">
-            <Phone className="h-4 w-4" /> 600 000 000
+          <a href="tel:+34675832994" className="hidden lg:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-smooth">
+            <Phone className="h-4 w-4" /> 675 83 29 94
           </a>
           <Link
             to={`${base}/contacto`}
@@ -145,7 +119,7 @@ export const SiteFooter = () => {
             <div className="h-8 w-8 rounded-md bg-accent flex items-center justify-center">
               <span className="text-accent-foreground font-display text-lg leading-none">W</span>
             </div>
-            <span className="font-display text-xl">Walsadua</span>
+            <span className="font-display text-xl">inmoinversión</span>
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
             Inmobiliaria especializada en gestión y promoción de viviendas para propietarios particulares.
@@ -164,8 +138,8 @@ export const SiteFooter = () => {
           <h4 className="text-sm font-semibold mb-4 uppercase tracking-wider text-accent">Contacto</h4>
           <ul className="space-y-3 text-sm text-primary-foreground/70">
             <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 shrink-0" /> Calle Mayor 12, 28013 Madrid</li>
-            <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0" /> +34 600 000 000</li>
-            <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 shrink-0" /> info@walsadua.com</li>
+            <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0" /> +34 675 83 29 94</li>
+            <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 shrink-0" /> info@inmoinversion.com</li>
           </ul>
         </div>
         <div>
@@ -181,7 +155,7 @@ export const SiteFooter = () => {
       </div>
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto py-5 text-xs text-primary-foreground/50 flex flex-col md:flex-row justify-between gap-2">
-          <span>© {new Date().getFullYear()} Walsadua Inmobiliaria. Todos los derechos reservados.</span>
+          <span>© {new Date().getFullYear()} inmoinversión Inmobiliaria. Todos los derechos reservados.</span>
           <span>Aviso legal · Política de privacidad · Cookies</span>
         </div>
       </div>
@@ -189,41 +163,19 @@ export const SiteFooter = () => {
   );
 };
 
-export const ThemeSwitcher = () => {
-  const current = useTheme();
-  const { pathname } = useLocation();
-  const subpath = pathname.replace(/^\/(t1|t2|t3)/, "") || "";
-
-  const items: { k: ThemeKey; label: string; sub: string }[] = [
-    { k: "t1", label: "Esencial", sub: "Moderno" },
-    { k: "t2", label: "Editorial", sub: "Clásico" },
-    { k: "t3", label: "Premium", sub: "Audaz" },
-  ];
-
-  return (
-    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-background/95 backdrop-blur-xl border border-border rounded-pill shadow-elegant px-2 py-1.5 flex items-center gap-1">
-      <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground px-3 hidden sm:inline">
-        Plantilla
-      </span>
-      {items.map((it) => (
-        <Link
-          key={it.k}
-          to={`/${it.k}${subpath}`}
-          className={`text-xs px-4 py-2 rounded-pill transition-smooth flex flex-col items-center leading-tight ${
-            current === it.k
-              ? "bg-primary text-primary-foreground"
-              : "text-foreground hover:bg-secondary"
-          }`}
-        >
-          <span className="font-semibold">{it.label}</span>
-          <span className={`text-[9px] uppercase tracking-wider ${current === it.k ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
-            {it.sub}
-          </span>
-        </Link>
-      ))}
-    </div>
-  );
-};
+export const WhatsAppFab = () => (
+  <a
+    href={`https://wa.me/${CONTACT_WHATSAPP.replace(/\D/g, "")}?text=${encodeURIComponent(
+      "Hola, me gustaría recibir más información sobre inmoinversión."
+    )}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-pill bg-[#25D366] text-white flex items-center justify-center shadow-elegant hover:scale-105 transition-spring"
+  >
+    <MessageCircle className="h-7 w-7" />
+  </a>
+);
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -235,7 +187,7 @@ export const SiteLayout = ({ children }: LayoutProps) => {
       <SiteHeader />
       <main className="flex-1">{children}</main>
       <SiteFooter />
-      <ThemeSwitcher />
+      <WhatsAppFab />
     </div>
   );
 };

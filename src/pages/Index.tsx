@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 
-// La home redirige a la primera plantilla.
-const Index = () => <Navigate to="/t1" replace />;
+// Diseño único: redirige al sitio.
+const Index = () => <Navigate to="/t3" replace />;
 
 export default Index;

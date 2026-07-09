@@ -18,7 +18,7 @@ const Owners = () => {
             Tu vivienda, en las mejores manos.
           </h1>
           <p className="mt-5 text-primary-foreground/80 max-w-2xl text-lg">
-            Walsadua se ocupa de todo: desde la presentación profesional de tu propiedad hasta la selección de inquilinos o compradores. Tú solo recibes los resultados.
+            inmoinversión se ocupa de todo: desde la presentación profesional de tu propiedad hasta la selección de inquilinos o compradores. Tú solo recibes los resultados.
           </p>
           <Link to={`/${theme}/contacto`} className="mt-8 inline-flex items-center gap-2 rounded-md bg-accent text-accent-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition-smooth">
             Solicitar valoración gratuita <ArrowRight className="h-4 w-4" />
@@ -50,7 +50,7 @@ const Owners = () => {
       <section className="bg-surface border-y border-border py-20">
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Por qué Walsadua</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Por qué inmoinversión</span>
             <h2 className="font-display text-3xl md:text-4xl mt-3 mb-6 text-balance">
               Una inmobiliaria pensada para propietarios exigentes.
             </h2>

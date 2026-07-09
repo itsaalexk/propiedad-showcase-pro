@@ -22,19 +22,19 @@ const Contact = () => {
           <div className="bg-card border border-border rounded-lg p-6 shadow-card">
             <Phone className="h-7 w-7 text-primary mb-3" />
             <h3 className="font-display text-lg mb-1">Teléfono</h3>
-            <a href="tel:+34600000000" className="text-foreground hover:text-primary transition-smooth">+34 600 000 000</a>
+            <a href="tel:+34675832994" className="text-foreground hover:text-primary transition-smooth">+34 675 83 29 94</a>
             <p className="text-xs text-muted-foreground mt-2">Lun a Vie · 9h–19h</p>
           </div>
           <a href="https://wa.me/34600000000" target="_blank" rel="noreferrer" className="block bg-card border border-border rounded-lg p-6 shadow-card hover-lift">
             <MessageCircle className="h-7 w-7 text-[#25D366] mb-3" />
             <h3 className="font-display text-lg mb-1">WhatsApp directo</h3>
-            <p className="text-foreground">+34 600 000 000</p>
+            <p className="text-foreground">+34 675 83 29 94</p>
             <p className="text-xs text-muted-foreground mt-2">Respuesta inmediata en horario comercial</p>
           </a>
-          <a href="mailto:info@walsadua.com" className="block bg-card border border-border rounded-lg p-6 shadow-card hover-lift">
+          <a href="mailto:info@inmoinversion.com" className="block bg-card border border-border rounded-lg p-6 shadow-card hover-lift">
             <Mail className="h-7 w-7 text-primary mb-3" />
             <h3 className="font-display text-lg mb-1">Correo electrónico</h3>
-            <p className="text-foreground">info@walsadua.com</p>
+            <p className="text-foreground">info@inmoinversion.com</p>
             <p className="text-xs text-muted-foreground mt-2">Respuesta en menos de 24h</p>
           </a>
           <div className="bg-card border border-border rounded-lg p-6 shadow-card">
@@ -48,7 +48,7 @@ const Contact = () => {
 
         {/* FORM */}
         <form
-          onSubmit={(e) => { e.preventDefault(); window.location.href = "mailto:info@walsadua.com"; }}
+          onSubmit={(e) => { e.preventDefault(); window.location.href = "mailto:info@inmoinversion.com"; }}
           className="lg:col-span-2 bg-card border border-border rounded-lg p-8 md:p-10 shadow-card space-y-5"
         >
           <div>
@@ -87,7 +87,7 @@ const Contact = () => {
 
           <label className="flex items-start gap-2 text-xs text-muted-foreground">
             <input type="checkbox" required className="mt-0.5" />
-            <span>He leído y acepto la política de privacidad de Walsadua.</span>
+            <span>He leído y acepto la política de privacidad de inmoinversión.</span>
           </label>
 
           <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-md bg-primary text-primary-foreground px-8 py-3.5 text-sm font-medium hover:opacity-90 transition-smooth">
