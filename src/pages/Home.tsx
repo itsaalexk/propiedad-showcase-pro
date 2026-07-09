@@ -7,6 +7,7 @@ import {
   ArrowUpRight, ChevronLeft, ChevronRight,
   Sparkles, Shield, Heart, Award, Phone,
   SearchCheck, Hammer, Users, Coins,
+  KeyRound, Wrench, PieChart,
 } from "lucide-react";
 import heroBedroom from "@/assets/hero-bedroom.jpg";
 
@@ -15,6 +16,12 @@ const STEPS = [
   { icon: Hammer, n: "2", t: "Reformamos y optimizamos", d: "Reformamos, decoramos y dividimos el inmueble para maximizar su rentabilidad." },
   { icon: Users, n: "3", t: "Gestionamos el activo", d: "Nos encargamos de todo: inquilinos, mantenimiento, limpieza, cobros y más." },
   { icon: Coins, n: "4", t: "Tú cobras la rentabilidad", d: "Recibes tus ingresos todos los meses de forma pasiva y con total tranquilidad." },
+];
+
+const PRODUCTS = [
+  { icon: KeyRound, t: "Inversión llave en mano para alquiler", d: "Adquirimos, reformamos y gestionamos el inmueble por ti. Tú recibes una rentabilidad por alquiler de forma totalmente pasiva." },
+  { icon: Wrench, t: "Comprar, reformar y vender", d: "Detectamos oportunidades, las reformamos con criterio y las vendemos con plusvalía. Una inversión con horizonte definido." },
+  { icon: PieChart, t: "Participaciones en proyectos", d: "Participa en proyectos inmobiliarios concretos con una entrada accesible y comparte los beneficios de cada operación." },
 ];
 
 const Home = () => {
@@ -109,6 +116,34 @@ const Home = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* PRODUCTOS / MODALIDADES DE INVERSIÓN */}
+      <section className="container mx-auto py-24">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">Modalidades</span>
+          <h2 className="font-display text-4xl md:text-6xl uppercase mt-4 leading-none">
+            Formas de <span className="italic text-accent font-normal">invertir</span> con nosotros
+          </h2>
+          <p className="mt-6 text-muted-foreground text-lg">
+            Tres modelos pensados para adaptarse a tu perfil y a tus objetivos de rentabilidad.
+          </p>
+        </div>
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
+          {PRODUCTS.map((p, i) => (
+            <div key={p.t} className="corner-frame relative p-8 border border-border rounded-card bg-surface flex flex-col">
+              <span className="absolute top-6 right-6 font-display text-5xl text-accent/15">0{i + 1}</span>
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-card border border-accent/40 text-accent mb-6">
+                <p.icon className="h-6 w-6" />
+              </div>
+              <h3 className="font-display text-xl uppercase tracking-tight leading-tight">{p.t}</h3>
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed flex-1">{p.d}</p>
+              <Link to={`/${theme}/contacto`} className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-accent hover:gap-3 transition-all">
+                Más información <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+          ))}
         </div>
       </section>
 

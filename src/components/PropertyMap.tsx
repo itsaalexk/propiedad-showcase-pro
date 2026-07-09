@@ -47,7 +47,7 @@ export const PropertyMap = ({ properties, theme }: Props) => {
                 <div className="text-xs text-muted-foreground">{p.city} · {p.type}</div>
                 <Link
                   to={`/${theme}/vivienda/${p.slug}`}
-                  className="mt-2 inline-flex items-center justify-center w-full rounded-pill bg-primary text-primary-foreground px-3 py-1.5 text-xs font-semibold"
+                  className="mt-2 inline-flex items-center justify-center w-full rounded-pill bg-accent text-accent-foreground px-3 py-1.5 text-xs font-semibold"
                 >
                   Ver más
                 </Link>
