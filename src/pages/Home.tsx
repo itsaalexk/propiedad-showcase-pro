@@ -7,6 +7,7 @@ import {
   ArrowUpRight, ChevronLeft, ChevronRight,
   Sparkles, Shield, Heart, Award, Phone,
   SearchCheck, Hammer, Users, Coins,
+  KeyRound, Wrench, PieChart,
 } from "lucide-react";
 import heroBedroom from "@/assets/hero-bedroom.jpg";
 
