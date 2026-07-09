@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { properties } from "@/data/properties";
 import { PropertyCard } from "@/components/PropertyCard";
 import { SiteLayout, useTheme } from "@/components/Site";
+import { PropertyMap } from "@/components/PropertyMap";
 import { Search, MapPin, Home, BedDouble, X, SlidersHorizontal } from "lucide-react";
 import heroVilla from "@/assets/hero-villa.jpg";
 
