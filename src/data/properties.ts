@@ -27,6 +27,7 @@ export type Property = {
   features: string[];
   highlights: string[];
   energyRating: "A" | "B" | "C" | "D" | "E";
+  coords: [number, number];
   owner: { name: string; whatsapp: string; email: string };
 };
 
@@ -53,6 +54,7 @@ export const properties: Property[] = [
     features: ["Cocina equipada", "Calefacción central", "Ascensor", "Patio interior", "Suelo de madera", "Doble ventana"],
     highlights: ["Luz natural todo el día", "Edificio rehabilitado 2021", "A 5 min del metro Sol"],
     energyRating: "B",
+    coords: [40.4168, -3.7038],
     owner: { name: "María L.", whatsapp: "+34600000001", email: "maria@inmoinversion.com" },
   },
   {
@@ -77,6 +79,7 @@ export const properties: Property[] = [
     features: ["Piscina privada", "Jardín 400m²", "Garaje 2 coches", "Aire acondicionado", "Domótica", "Trastero"],
     highlights: ["Parcela de 600m²", "A 10 min de la playa", "Urbanización privada"],
     energyRating: "A",
+    coords: [36.5101, -4.8824],
     owner: { name: "Javier M.", whatsapp: "+34600000002", email: "javier@inmoinversion.com" },
   },
   {
@@ -102,6 +105,7 @@ export const properties: Property[] = [
     features: ["Jardín privado", "3 plantas", "Trastero", "Plaza aparcamiento", "Aerotermia", "Domótica básica"],
     highlights: ["Obra de 2020", "Eficiencia energética A", "Barrio residencial"],
     energyRating: "A",
+    coords: [41.3874, 2.1686],
     owner: { name: "Lucía F.", whatsapp: "+34600000003", email: "lucia@inmoinversion.com" },
   },
   {
@@ -126,6 +130,7 @@ export const properties: Property[] = [
     features: ["Terraza 40m²", "Vistas panorámicas", "Conserje 24h", "Piscina comunitaria", "Gimnasio", "Aire acondicionado"],
     highlights: ["Planta 21", "Terraza envolvente", "Servicios premium"],
     energyRating: "A",
+    coords: [39.4699, -0.3763],
     owner: { name: "Andrés R.", whatsapp: "+34600000004", email: "andres@inmoinversion.com" },
   },
   {
@@ -150,6 +155,7 @@ export const properties: Property[] = [
     features: ["Chimenea", "Huerto", "Bodega", "1.500m² terreno", "Piscina ecológica", "Vigas de madera"],
     highlights: ["Rehabilitación integral", "Entre viñedos", "1.500m² de terreno"],
     energyRating: "C",
+    coords: [42.5772, -2.8467],
     owner: { name: "Elena V.", whatsapp: "+34600000005", email: "elena@inmoinversion.com" },
   },
   {
@@ -174,6 +180,7 @@ export const properties: Property[] = [
     features: ["Primera línea de playa", "Piscina infinita", "Domótica integral", "Garaje 3 coches", "Suite principal", "Baño de mármol"],
     highlights: ["Primera línea", "Obra nueva 2023", "Acceso directo a la arena"],
     energyRating: "A",
+    coords: [36.5271, -6.2886],
     owner: { name: "Carlos B.", whatsapp: "+34600000006", email: "carlos@inmoinversion.com" },
   },
 ];
