@@ -8,10 +8,10 @@ const Contact = () => {
         <div className="container mx-auto py-16">
           <span className="text-xs uppercase tracking-[0.3em] text-accent">Contacto</span>
           <h1 className="font-display text-4xl md:text-5xl mt-3 max-w-3xl text-balance">
-            Hablemos de tu próximo hogar.
+            Hablemos de tu próxima inversión inmobiliaria.
           </h1>
           <p className="mt-4 text-primary-foreground/80 max-w-2xl">
-            Nuestro equipo te atiende de lunes a viernes. Elige el canal que prefieras: te respondemos en menos de 24h.
+            Nuestro equipo te asesora de lunes a viernes. Elige el canal que prefieras: te respondemos en menos de 24h.
           </p>
         </div>
       </section>
