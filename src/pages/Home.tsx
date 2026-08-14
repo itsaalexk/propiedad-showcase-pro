@@ -5,7 +5,7 @@ import { PropertyCard } from "@/components/PropertyCard";
 import { properties } from "@/data/properties";
 import {
   ArrowUpRight, ChevronLeft, ChevronRight,
-  Sparkles, Shield, Heart, Award, Phone,
+  Phone,
   SearchCheck, Hammer, Users, Coins,
   KeyRound, Wrench, PieChart,
 } from "lucide-react";
