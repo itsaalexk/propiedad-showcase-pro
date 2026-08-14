@@ -21,22 +21,39 @@ const writeToken = import.meta.env.VITE_SANITY_WRITE_TOKEN as string | undefined
 
 export const isSanityEnabled = Boolean(projectId);
 
+/** Info de diagnóstico para depurar la conexión en local. */
+export const sanityDebug = {
+  enabled: isSanityEnabled,
+  projectId: projectId ?? null,
+  dataset,
+  apiVersion,
+  hasWriteToken: Boolean(writeToken),
+};
+
+if (import.meta.env.DEV) {
+  // eslint-disable-next-line no-console
+  console.info("[Sanity]", isSanityEnabled ? sanityDebug : "Desactivado: falta VITE_SANITY_PROJECT_ID en .env.local (reinicia npm run dev tras crearlo)");
+}
+
 export const sanityClient: SanityClient | null = isSanityEnabled
   ? createClient({
       projectId: projectId!,
       dataset,
       apiVersion,
-      useCdn: import.meta.env.VITE_SANITY_USE_CDN !== "false",
+      // En desarrollo desactivamos la CDN para ver los cambios al instante.
+      useCdn: import.meta.env.DEV ? false : import.meta.env.VITE_SANITY_USE_CDN !== "false",
       perspective: "published",
     })
   : null;
 
-const writeClient: SanityClient | null =
-  isSanityEnabled && writeToken
-    ? createClient({ projectId: projectId!, dataset, apiVersion, useCdn: false, token: writeToken })
+/** Cliente que también ve borradores (solo se usa como diagnóstico en local). */
+const draftClient: SanityClient | null =
+  isSanityEnabled && import.meta.env.DEV
+    ? createClient({ projectId: projectId!, dataset, apiVersion, useCdn: false, perspective: "raw", token: writeToken })
     : null;
 
 const builder = sanityClient ? imageUrlBuilder(sanityClient) : null;
+
 
 export const urlFor = (source: unknown, width = 1600) => {
   if (!builder || !source) return "";
