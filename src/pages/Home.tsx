@@ -184,7 +184,7 @@ const Home = () => {
               <span className="italic text-accent font-normal">inversiones de éxito.</span>
             </h2>
             <p className="text-primary-foreground/75 mt-8 text-lg leading-relaxed">
-              Con Inmo Inversión cuentas con un equipo que analiza, selecciona, reforma y gestiona cada proyecto como si fuese propio, porque una buena inversión no depende de la suerte, sino de estar asesorado.
+              Con Inmoinversión cuentas con un equipo que analiza, selecciona, reforma y gestiona cada proyecto como si fuese propio, porque una buena inversión no depende de la suerte, sino de estar asesorado.
             </p>
             <Link to={`/${theme}/sobre-nosotros`} className="mt-10 inline-flex items-center gap-2 rounded-pill bg-accent text-accent-foreground px-7 py-3.5 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
               Conoce el equipo <ArrowUpRight className="h-4 w-4" />
