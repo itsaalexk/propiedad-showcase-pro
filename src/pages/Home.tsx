@@ -65,12 +65,11 @@ const Home = () => {
 
         {/* Banda de stats */}
         <div className="relative border-t border-primary-foreground/10">
-          <div className="container mx-auto py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="container mx-auto py-8 grid grid-cols-2 md:grid-cols-3 gap-6">
             {[
               { v: "+15", l: "Años" },
               { v: "+450", l: "Propietarios" },
               { v: "98%", l: "Satisfacción" },
-              { v: "24h", l: "Respuesta" },
             ].map((s) => (
               <div key={s.l} className="text-center">
                 <div className="font-display text-4xl md:text-5xl text-accent">{s.v}</div>
@@ -149,7 +148,7 @@ const Home = () => {
           <div>
             <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">La colección</span>
             <h2 className="font-display text-4xl md:text-6xl uppercase mt-4 leading-none">
-              Viviendas <span className="italic text-accent font-normal">destacadas</span>
+              Inversiones <span className="italic text-accent font-normal">destacadas</span>
             </h2>
           </div>
           <div className="hidden md:flex items-center gap-2">
@@ -170,7 +169,7 @@ const Home = () => {
         </div>
         <div className="text-center mt-12">
           <Link to={`/${theme}/viviendas`} className="inline-flex items-center gap-2 rounded-pill border-2 border-primary text-primary px-8 py-3.5 text-sm font-bold uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-smooth">
-            Ver toda la colección <ArrowUpRight className="h-4 w-4" />
+            Encuentra tu oportunidad <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
