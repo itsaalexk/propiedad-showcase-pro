@@ -139,6 +139,7 @@ export const fetchInvestment = async (slug: string): Promise<Investment | null> 
 export type SocialLink = { enabled?: boolean; url?: string };
 export type SiteSettings = {
   brandName?: string;
+  logoUrl?: string;
   phone?: string;
   whatsapp?: string;
   email?: string;
