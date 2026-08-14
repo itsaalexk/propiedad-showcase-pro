@@ -48,6 +48,15 @@ export const siteSettings = defineType({
     }),
 
     defineField({
+      name: "logo",
+      title: "Logo",
+      type: "image",
+      group: "contact",
+      description: "Se muestra en la cabecera y en el pie de página. Recomendado: PNG/SVG con fondo transparente.",
+      options: { hotspot: true },
+    }),
+
+    defineField({
       name: "office",
       title: "Oficina",
       type: "object",

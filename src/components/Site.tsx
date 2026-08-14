@@ -64,16 +64,20 @@ export const SiteHeader = () => {
     { to: `${base}/contacto`, label: "Contacto" },
   ];
 
-  const Logo = () => (
-    <Link to={base} className="flex items-center gap-2.5">
-      <div className="h-9 w-9 rounded-pill bg-primary flex items-center justify-center ring-1 ring-accent/40">
-        <span className="text-accent font-display text-base leading-none">II</span>
-      </div>
-      <span className="font-display text-xl text-foreground tracking-tight lowercase">
-        {settings.brandName || "inmoinversión"}
-      </span>
-    </Link>
-  );
+  const brand = settings.brandName || "inmoinversión";
+  const Logo = () =>
+    settings.logoUrl ? (
+      <Link to={base} className="flex items-center">
+        <img src={settings.logoUrl} alt={brand} className="h-10 w-auto object-contain" />
+      </Link>
+    ) : (
+      <Link to={base} className="flex items-center gap-2.5">
+        <div className="h-9 w-9 rounded-pill bg-primary flex items-center justify-center ring-1 ring-accent/40">
+          <span className="text-accent font-display text-base leading-none">II</span>
+        </div>
+        <span className="font-display text-xl text-foreground tracking-tight lowercase">{brand}</span>
+      </Link>
+    );
 
   return (
     <header className="sticky top-0 z-30 bg-background/90 backdrop-blur-md border-b border-border">
@@ -129,12 +133,16 @@ export const SiteFooter = () => {
     <footer className="bg-primary text-primary-foreground mt-16">
       <div className="container mx-auto py-14 grid md:grid-cols-4 gap-10">
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="h-8 w-8 rounded-md bg-accent flex items-center justify-center">
-              <span className="text-accent-foreground font-display text-lg leading-none">II</span>
+          {settings.logoUrl ? (
+            <img src={settings.logoUrl} alt={brand} className="h-10 w-auto object-contain mb-4" />
+          ) : (
+            <div className="flex items-center gap-2 mb-4">
+              <div className="h-8 w-8 rounded-md bg-accent flex items-center justify-center">
+                <span className="text-accent-foreground font-display text-lg leading-none">II</span>
+              </div>
+              <span className="font-display text-xl">{brand}</span>
             </div>
-            <span className="font-display text-xl">{brand}</span>
-          </div>
+          )}
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
             Inmobiliaria especializada en gestión y promoción de inversiones inmobiliarias.
           </p>

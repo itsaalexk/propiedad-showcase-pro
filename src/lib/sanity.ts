@@ -139,6 +139,7 @@ export const fetchInvestment = async (slug: string): Promise<Investment | null> 
 export type SocialLink = { enabled?: boolean; url?: string };
 export type SiteSettings = {
   brandName?: string;
+  logoUrl?: string;
   phone?: string;
   whatsapp?: string;
   email?: string;
@@ -149,7 +150,12 @@ export type SiteSettings = {
 
 export const fetchSiteSettings = async (): Promise<SiteSettings | null> => {
   if (!sanityClient) return null;
-  return sanityClient.fetch<SiteSettings | null>(`*[_type == "siteSettings"][0]`);
+  const doc = await sanityClient.fetch<(SiteSettings & { logo?: unknown }) | null>(
+    `*[_type == "siteSettings"][0]`
+  );
+  if (!doc) return null;
+  const logoUrl = doc.logo ? urlFor(doc.logo, 400) : undefined;
+  return { ...doc, logoUrl: logoUrl || undefined };
 };
 
 export type ContactPayload = {
