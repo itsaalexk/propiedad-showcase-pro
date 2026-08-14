@@ -90,7 +90,7 @@ const PropertyDetail = () => {
               </p>
             )}
             {property.price && (
-              <p className="mt-3 font-display text-2xl text-primary">{property.price}</p>
+              <p className="mt-3 font-display text-2xl text-primary">{property.price} €</p>
             )}
           </div>
 
