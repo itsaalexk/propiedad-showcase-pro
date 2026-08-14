@@ -11,6 +11,7 @@ export type Property = {
   ref: string;
   title: string;
   type: string;
+  category: "participaciones" | "alquiler" | "flipping" | "otros";
   status: "disponible" | "proximamente" | "reservada";
   availableFrom?: string;
   location: string;
@@ -38,6 +39,7 @@ export const properties: Property[] = [
     ref: "INM-001",
     title: "Loft Luminoso en el Centro",
     type: "Apartamento",
+    category: "alquiler",
     status: "disponible",
     location: "Calle Mayor 12, Madrid Centro",
     city: "Madrid",
@@ -63,6 +65,7 @@ export const properties: Property[] = [
     ref: "INM-002",
     title: "Villa Mediterránea con Piscina",
     type: "Villa",
+    category: "participaciones",
     status: "disponible",
     location: "Camino del Mar 7, Marbella",
     city: "Marbella",
@@ -88,6 +91,7 @@ export const properties: Property[] = [
     ref: "INM-003",
     title: "Townhouse con Jardín Urbano",
     type: "Adosado",
+    category: "flipping",
     status: "proximamente",
     availableFrom: "01/03/2026",
     location: "Av. del Parque 33, Barcelona",
@@ -114,6 +118,7 @@ export const properties: Property[] = [
     ref: "INM-004",
     title: "Ático con Vistas al Skyline",
     type: "Ático",
+    category: "alquiler",
     status: "disponible",
     location: "Torre Alta 21, Valencia",
     city: "Valencia",
@@ -139,6 +144,7 @@ export const properties: Property[] = [
     ref: "INM-005",
     title: "Casa de Piedra entre Viñedos",
     type: "Casa rural",
+    category: "otros",
     status: "disponible",
     location: "Camino del Valle s/n, La Rioja",
     city: "Haro",
@@ -164,6 +170,7 @@ export const properties: Property[] = [
     ref: "INM-006",
     title: "Casa Frente al Mar",
     type: "Casa",
+    category: "flipping",
     status: "reservada",
     location: "Paseo Marítimo 5, Cádiz",
     city: "Cádiz",
