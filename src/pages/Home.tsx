@@ -57,7 +57,7 @@ const Home = () => {
                 Encuentra tu oportunidad <ArrowUpRight className="h-5 w-5" />
               </Link>
               <Link to={`/${theme}/vender`} className="inline-flex items-center gap-3 rounded-pill border border-primary-foreground/30 text-primary-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-primary-foreground hover:text-primary transition-smooth">
-                Quiero vender
+                Compramos tu propiedad
               </Link>
             </div>
           </div>

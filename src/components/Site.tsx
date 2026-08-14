@@ -59,7 +59,7 @@ export const SiteHeader = () => {
     { to: `${base}`, label: "Inicio" },
     { to: `${base}/inversiones`, label: "Inversiones" },
     
-    { to: `${base}/vender`, label: "Vender" },
+    { to: `${base}/vender`, label: "Compramos tu propiedad" },
     { to: `${base}/sobre-nosotros`, label: "Sobre nosotros" },
     { to: `${base}/contacto`, label: "Contacto" },
   ];
@@ -131,7 +131,7 @@ export const SiteFooter = () => {
           <ul className="space-y-2 text-sm text-primary-foreground/70">
             <li><Link to={`${base}/inversiones`} className="hover:text-accent transition-smooth">Inversiones disponibles</Link></li>
             
-            <li><Link to={`${base}/vender`} className="hover:text-accent transition-smooth">Vender tu propiedad</Link></li>
+            <li><Link to={`${base}/vender`} className="hover:text-accent transition-smooth">Compramos tu propiedad</Link></li>
             <li><Link to={`${base}/sobre-nosotros`} className="hover:text-accent transition-smooth">Sobre nosotros</Link></li>
             <li><Link to={`${base}/contacto`} className="hover:text-accent transition-smooth">Contacto</Link></li>
           </ul>
