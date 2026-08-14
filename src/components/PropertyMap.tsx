@@ -26,8 +26,8 @@ export const PropertyMap = ({ properties, theme }: Props) => {
   const withCoords = properties.filter((p) => p.coords);
   const center: [number, number] = withCoords.length
     ? [
-        withCoords.reduce((s, p) => s + p.coords[0], 0) / withCoords.length,
-        withCoords.reduce((s, p) => s + p.coords[1], 0) / withCoords.length,
+        withCoords.reduce((s, p) => s + p.coords![0], 0) / withCoords.length,
+        withCoords.reduce((s, p) => s + p.coords![1], 0) / withCoords.length,
       ]
     : [40.4168, -3.7038];
 
@@ -39,7 +39,7 @@ export const PropertyMap = ({ properties, theme }: Props) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {withCoords.map((p) => (
-          <Marker key={p.id} position={p.coords} icon={icon}>
+          <Marker key={p.id} position={p.coords!} icon={icon}>
             <Popup>
               <div className="w-52">
                 <img src={p.image} alt={p.title} className="w-full h-24 object-cover rounded-md" />

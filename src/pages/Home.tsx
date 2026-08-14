@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { SiteLayout, useTheme } from "@/components/Site";
 import { PropertyCard } from "@/components/PropertyCard";
-import { properties } from "@/data/properties";
+import { useInvestments } from "@/hooks/useContent";
 import {
   ArrowUpRight, ChevronLeft, ChevronRight,
   Phone,
@@ -26,7 +26,8 @@ const PRODUCTS = [
 
 const Home = () => {
   const theme = useTheme();
-  const featured = properties.filter((p) => p.status !== "reservada").slice(0, 6);
+  const { investments } = useInvestments();
+  const featured = investments.slice(0, 6);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: "l" | "r") => {

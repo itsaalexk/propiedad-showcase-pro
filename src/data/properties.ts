@@ -28,7 +28,7 @@ export type Property = {
   features: string[];
   highlights: string[];
   energyRating: "A" | "B" | "C" | "D" | "E";
-  coords: [number, number];
+  coords?: [number, number];
   owner: { name: string; whatsapp: string; email: string };
 };
 
