@@ -1,15 +1,39 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Mail, Phone, MapPin, MessageCircle, Clock, Send } from "lucide-react";
 import { SiteLayout } from "@/components/Site";
 import { useSiteSettings } from "@/hooks/useContent";
 import { submitContactRequest } from "@/lib/sanity";
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_WHATSAPP } from "@/lib/contact";
 import { toast } from "@/hooks/use-toast";
+import { useSearchParams } from "react-router-dom";
+
+const SUBJECTS = [
+  "Información sobre una inversión",
+  "Soy propietario y quiero saber más",
+  "Otra consulta",
+];
+
+const INVESTMENT_RANGES = [
+  "Desde 1.000 € hasta 49.999 €",
+  "Desde 50.000 € hasta 100.000 €",
+  "Más de 100.000 €",
+];
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
   const settings = useSiteSettings();
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [subject, setSubject] = useState(SUBJECTS[0]);
+
+  const isOwnerSubject = subject === "Soy propietario y quiero saber más";
+
+  useEffect(() => {
+    const param = searchParams.get("asunto");
+    if (param === "propietario") {
+      setSubject("Soy propietario y quiero saber más");
+    }
+  }, [searchParams]);
 
   const phone = settings.phone || CONTACT_PHONE;
   const whatsapp = (settings.whatsapp || CONTACT_WHATSAPP).replace(/\D/g, "");
@@ -25,7 +49,7 @@ const Contact = () => {
       email: String(data.get("email") || "").trim().slice(0, 200),
       phone: String(data.get("phone") || "").trim().slice(0, 40),
       subject: String(data.get("subject") || ""),
-      investmentRange: String(data.get("investmentRange") || ""),
+      investmentRange: isOwnerSubject ? "" : String(data.get("investmentRange") || ""),
       message: String(data.get("message") || "").trim().slice(0, 2000),
       source: "web-contacto",
     };
@@ -36,6 +60,7 @@ const Contact = () => {
       if (saved) {
         setSent(true);
         form.reset();
+        setSubject(SUBJECTS[0]);
         toast({ title: "Mensaje enviado", description: "Te responderemos en menos de 24h." });
       } else {
         window.location.href = `mailto:${email}?subject=${encodeURIComponent(
