@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Mail, Phone, MapPin, MessageCircle, Clock, Send } from "lucide-react";
 import { SiteLayout } from "@/components/Site";
 import { useSiteSettings } from "@/hooks/useContent";
@@ -149,20 +149,31 @@ const Contact = () => {
             </div>
             <div>
               <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Asunto *</label>
-              <select name="subject" required className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth">
-                <option>Información sobre una inversión</option>
-                <option>Soy propietario y quiero saber más</option>
-                <option>Otra consulta</option>
+              <select
+                name="subject"
+                required
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+                className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth"
+              >
+                {SUBJECTS.map((s) => (
+                  <option key={s} value={s}>{s}</option>
+                ))}
               </select>
             </div>
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Rango de inversión *</label>
-              <select name="investmentRange" required className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth">
-                <option>Desde 1.000 € hasta 49.999 €</option>
-                <option>Desde 50.000 € hasta 100.000 €</option>
-                <option>Más de 100.000 €</option>
-              </select>
-            </div>
+            {!isOwnerSubject && (
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Rango de inversión *</label>
+                <select name="investmentRange" required className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth">
+                  {INVESTMENT_RANGES.map((r) => (
+                    <option key={r} value={r}>{r}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+            {isOwnerSubject && (
+              <input type="hidden" name="investmentRange" value="" />
+            )}
           </div>
 
           <div>
