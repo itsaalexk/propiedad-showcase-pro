@@ -1,47 +1,65 @@
-# Plantillas de Sanity para inmoinversión
+# Sanity + inmoinversión — guía de integración
 
-Estos archivos son **esquemas listos para copiar y pegar** en tu Sanity Studio.
-Con ellos podrás editar desde Sanity toda la información que se muestra en la web.
+Esta carpeta contiene los esquemas listos para copiar en tu Sanity Studio.
 
-## Qué incluye
+## 1. Crear el Studio
 
-- `schemaTypes/property.ts` → **Propiedad / Vivienda**. Contiene todos los campos
-  que aparecen en la web:
-  - Información principal: título, slug (URL), referencia, tipo, estado
-    (disponible / próximamente / reservada), fecha de disponibilidad,
-    descripción y marcado de "destacada".
-  - Características: dormitorios, baños, superficie (m²), año, amueblada,
-    certificación energética, lista de características y puntos destacados.
-  - **Imágenes y vídeo**: imagen principal, galería de imágenes y **enlace de
-    vídeo de YouTube**.
-  - **Ubicación y mapa**: dirección, ciudad, provincia y **coordenadas
-    (latitud/longitud)** para el mapa de OpenStreetMap.
-  - Propietario: nombre, WhatsApp y email.
+```bash
+npm create sanity@latest -- --template clean --typescript
+```
 
-- `schemaTypes/siteSettings.ts` → **Ajustes del sitio** (singleton). Datos
-  globales editables: teléfono, WhatsApp, email, dirección de la oficina,
-  horario y redes sociales.
+Copia la carpeta `schemaTypes/` de este repo dentro de tu Studio y registra los esquemas
+en `sanity.config.ts`:
 
-- `schemaTypes/index.ts` → junta ambos esquemas.
+```ts
+import { schemaTypes } from "./schemaTypes";
 
-## Cómo usarlo
+export default defineConfig({
+  projectId: "TU_PROJECT_ID",
+  dataset: "production",
+  plugins: [structureTool()],
+  schema: { types: schemaTypes },
+});
+```
 
-1. Copia los archivos de `sanity/schemaTypes/` dentro de tu proyecto de Sanity
-   Studio (carpeta `schemaTypes/`).
-2. En tu `schemaTypes/index.ts` exporta ambos, por ejemplo:
+Esquemas incluidos:
 
-   ```ts
-   import { property } from "./property";
-   import { siteSettings } from "./siteSettings";
+| Documento | Para qué sirve |
+|---|---|
+| `investment` (Inversión) | Título, slug, tipo (participaciones / alquiler / flipping / otros proyectos), precio **opcional**, descripción en **texto enriquecido** (negrita, listas, enlaces, imágenes y vídeos de YouTube insertados), imagen principal, galería ilimitada, vídeos de YouTube, ubicación y **coordenadas** para el mapa. |
+| `siteSettings` (Ajustes del sitio) | Teléfono, WhatsApp, email, horario, oficina y redes sociales (Instagram, Facebook, YouTube, LinkedIn) con **interruptor** para activarlas/desactivarlas en el footer. Crea **un único** documento. |
+| `contactRequest` (Solicitud de contacto) | Aquí se guardan automáticamente los envíos del formulario de contacto de la web. |
 
-   export const schemaTypes = [property, siteSettings];
-   ```
+## 2. Permitir el acceso desde el frontal (CORS)
 
-3. Despliega el Studio y empieza a crear propiedades y a rellenar los ajustes
-   del sitio.
+En [sanity.io/manage](https://sanity.io/manage) → tu proyecto → **API** → **CORS origins**,
+añade `http://localhost:8080` (y tu dominio de producción). Marca *Allow credentials*
+solo si vas a usar token.
 
-## Siguiente paso (integración en la web)
+## 3. Variables de entorno del frontal
 
-Cuando quieras conectar la web a Sanity para que lea estos datos en lugar de los
-datos de ejemplo (`src/data/properties.ts`), avísame: instalaré `@sanity/client`
-y `@sanity/image-url`, y sustituiré la fuente de datos por consultas a Sanity.
+Crea un archivo `.env.local` en la raíz de este proyecto (ver `.env.example`):
+
+```
+VITE_SANITY_PROJECT_ID=tu_project_id
+VITE_SANITY_DATASET=production
+VITE_SANITY_API_VERSION=2024-01-01
+VITE_SANITY_USE_CDN=true
+# Token con permisos de escritura, solo si quieres guardar en Sanity
+# las solicitudes del formulario de contacto:
+VITE_SANITY_WRITE_TOKEN=sk...
+```
+
+Arranca el proyecto (`npm run dev`) y la web leerá automáticamente las inversiones y los
+ajustes desde Sanity. **Si no defines `VITE_SANITY_PROJECT_ID`, la web sigue funcionando
+con los datos de ejemplo locales.**
+
+> Nota de seguridad: el token de escritura queda expuesto en el bundle del navegador.
+> Crea un token con permiso mínimo (rol *Contributor* / solo `create`) y úsalo únicamente
+> para el formulario de contacto. Para producción lo ideal es mover ese envío a una
+> función de servidor.
+
+## 4. Dataset público
+
+El dataset debe ser **público** (`production` lo es por defecto) para leer sin token.
+Si es privado, necesitarás un token de lectura.

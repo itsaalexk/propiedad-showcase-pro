@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { properties } from "@/data/properties";
+import { useInvestments } from "@/hooks/useContent";
 import { PropertyCard } from "@/components/PropertyCard";
 import { SiteLayout, useTheme } from "@/components/Site";
 import { PropertyMap } from "@/components/PropertyMap";
@@ -16,8 +16,9 @@ const CATEGORIES = [
 const Listings = () => {
   const theme = useTheme();
   const [category, setCategory] = useState<string>("all");
+  const { investments } = useInvestments();
 
-  const filtered = properties.filter((p) => category === "all" || p.category === category);
+  const filtered = investments.filter((p) => category === "all" || p.category === category);
 
   return (
     <SiteLayout>

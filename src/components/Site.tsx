@@ -1,38 +1,37 @@
 import { Link, useLocation } from "react-router-dom";
-import { Mail, MessageCircle, MapPin, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Mail, MessageCircle, MapPin, Phone, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { useSiteSettings } from "@/hooks/useContent";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_WHATSAPP,
+  buildEmailLink,
+  buildWhatsappLink,
+} from "@/lib/contact";
 
 export type ThemeKey = "t3";
 
 // El proyecto usa un único diseño (Premium).
 export const useTheme = (): ThemeKey => "t3";
 
-export const CONTACT_PHONE = "+34 675 83 29 94";
-export const CONTACT_WHATSAPP = "+34675832994";
-export const CONTACT_EMAIL = "info@inmoinversion.com";
-
-export const buildWhatsappLink = (phone: string, title: string) =>
-  `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(
-    `Hola, me interesa la inversión "${title}" que he visto en inmoinversión.`
-  )}`;
-
-export const buildEmailLink = (email: string, title: string) =>
-  `mailto:${email}?subject=${encodeURIComponent(
-    `Interés en ${title}`
-  )}&body=${encodeURIComponent(`Buenos días, me gustaría recibir más información sobre la inversión "${title}". Quedo a la espera de su respuesta. Gracias.`)}`;
+export { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_WHATSAPP, buildEmailLink, buildWhatsappLink };
 
 interface CBProps {
-  whatsapp: string;
-  email: string;
+  whatsapp?: string;
+  email?: string;
   title: string;
   size?: "md" | "lg";
 }
 
 export const ContactButtons = ({ whatsapp, email, title, size = "md" }: CBProps) => {
+  const settings = useSiteSettings();
   const padding = size === "lg" ? "px-6 py-3.5" : "px-5 py-3";
+  const wa = whatsapp || settings.whatsapp || CONTACT_WHATSAPP;
+  const mail = email || settings.email || CONTACT_EMAIL;
   return (
     <div className="flex flex-col sm:flex-row gap-3 w-full">
       <a
-        href={buildWhatsappLink(whatsapp, title)}
+        href={buildWhatsappLink(wa, title)}
         target="_blank"
         rel="noopener noreferrer"
         className={`flex-1 inline-flex items-center justify-center gap-2 rounded-pill bg-[#25D366] text-white ${padding} text-sm font-semibold hover:opacity-90 transition-smooth`}
@@ -41,7 +40,7 @@ export const ContactButtons = ({ whatsapp, email, title, size = "md" }: CBProps)
         WhatsApp
       </a>
       <a
-        href={buildEmailLink(email, title)}
+        href={buildEmailLink(mail, title)}
         className={`flex-1 inline-flex items-center justify-center gap-2 rounded-pill bg-primary text-primary-foreground ${padding} text-sm font-semibold hover:opacity-90 transition-smooth`}
       >
         <Mail className="h-4 w-4" />
@@ -53,12 +52,13 @@ export const ContactButtons = ({ whatsapp, email, title, size = "md" }: CBProps)
 
 export const SiteHeader = () => {
   const theme = useTheme();
+  const settings = useSiteSettings();
   const { pathname } = useLocation();
   const base = `/${theme}`;
+  const phone = settings.phone || CONTACT_PHONE;
   const links = [
     { to: `${base}`, label: "Inicio" },
     { to: `${base}/inversiones`, label: "Inversiones" },
-    
     { to: `${base}/vender`, label: "Compramos tu propiedad" },
     { to: `${base}/sobre-nosotros`, label: "Sobre nosotros" },
     { to: `${base}/contacto`, label: "Contacto" },
@@ -69,7 +69,9 @@ export const SiteHeader = () => {
       <div className="h-9 w-9 rounded-pill bg-primary flex items-center justify-center ring-1 ring-accent/40">
         <span className="text-accent font-display text-base leading-none">II</span>
       </div>
-      <span className="font-display text-xl text-foreground tracking-tight lowercase">inmoinversión</span>
+      <span className="font-display text-xl text-foreground tracking-tight lowercase">
+        {settings.brandName || "inmoinversión"}
+      </span>
     </Link>
   );
 
@@ -94,8 +96,11 @@ export const SiteHeader = () => {
           })}
         </nav>
         <div className="flex items-center gap-3">
-          <a href="tel:+34675832994" className="hidden lg:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-smooth">
-            <Phone className="h-4 w-4" /> 675 83 29 94
+          <a
+            href={`tel:${phone.replace(/\s/g, "")}`}
+            className="hidden lg:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-smooth"
+          >
+            <Phone className="h-4 w-4" /> {phone}
           </a>
           <Link
             to={`${base}/contacto`}
@@ -111,26 +116,33 @@ export const SiteHeader = () => {
 
 export const SiteFooter = () => {
   const theme = useTheme();
+  const settings = useSiteSettings();
   const base = `/${theme}`;
+  const brand = settings.brandName || "inmoinversión";
+  const office = settings.office;
+  const socialIcons = { instagram: Instagram, facebook: Facebook, youtube: Youtube, linkedin: Linkedin } as const;
+  const socials = (Object.keys(socialIcons) as (keyof typeof socialIcons)[])
+    .map((key) => ({ key, Icon: socialIcons[key], ...(settings.social?.[key] ?? {}) }))
+    .filter((s) => s.enabled);
+
   return (
     <footer className="bg-primary text-primary-foreground mt-16">
       <div className="container mx-auto py-14 grid md:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-2 mb-4">
             <div className="h-8 w-8 rounded-md bg-accent flex items-center justify-center">
-              <span className="text-accent-foreground font-display text-lg leading-none">W</span>
+              <span className="text-accent-foreground font-display text-lg leading-none">II</span>
             </div>
-            <span className="font-display text-xl">inmoinversión</span>
+            <span className="font-display text-xl">{brand}</span>
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
-            Inmobiliaria especializada en gestión y promoción de inversiones inmobiliarias para propietarios particulares.
+            Inmobiliaria especializada en gestión y promoción de inversiones inmobiliarias.
           </p>
         </div>
         <div>
           <h4 className="text-sm font-semibold mb-4 uppercase tracking-wider text-accent">Navegación</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/70">
             <li><Link to={`${base}/inversiones`} className="hover:text-accent transition-smooth">Inversiones disponibles</Link></li>
-            
             <li><Link to={`${base}/vender`} className="hover:text-accent transition-smooth">Compramos tu propiedad</Link></li>
             <li><Link to={`${base}/sobre-nosotros`} className="hover:text-accent transition-smooth">Sobre nosotros</Link></li>
             <li><Link to={`${base}/contacto`} className="hover:text-accent transition-smooth">Contacto</Link></li>
@@ -139,25 +151,39 @@ export const SiteFooter = () => {
         <div>
           <h4 className="text-sm font-semibold mb-4 uppercase tracking-wider text-accent">Contacto</h4>
           <ul className="space-y-3 text-sm text-primary-foreground/70">
-            <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 shrink-0" /> Calle Mayor 12, 28013 Madrid</li>
-            <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0" /> +34 675 83 29 94</li>
-            <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 shrink-0" /> info@inmoinversion.com</li>
+            {office?.street && (
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
+                {[office.street, office.postalCode, office.city].filter(Boolean).join(", ")}
+              </li>
+            )}
+            <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0" /> {settings.phone || CONTACT_PHONE}</li>
+            <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 shrink-0" /> {settings.email || CONTACT_EMAIL}</li>
           </ul>
         </div>
-        <div>
-          <h4 className="text-sm font-semibold mb-4 uppercase tracking-wider text-accent">Síguenos</h4>
-          <div className="flex gap-2">
-            {[Instagram, Facebook, Linkedin].map((Ic, i) => (
-              <a key={i} href="#" className="h-10 w-10 rounded-md border border-primary-foreground/20 flex items-center justify-center hover:bg-accent hover:border-accent hover:text-accent-foreground transition-smooth">
-                <Ic className="h-4 w-4" />
-              </a>
-            ))}
+        {socials.length > 0 && (
+          <div>
+            <h4 className="text-sm font-semibold mb-4 uppercase tracking-wider text-accent">Síguenos</h4>
+            <div className="flex gap-2">
+              {socials.map(({ key, Icon, url }) => (
+                <a
+                  key={key}
+                  href={url || "#"}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={key}
+                  className="h-10 w-10 rounded-md border border-primary-foreground/20 flex items-center justify-center hover:bg-accent hover:border-accent hover:text-accent-foreground transition-smooth"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto py-5 text-xs text-primary-foreground/50 flex flex-col md:flex-row justify-between gap-2">
-          <span>© {new Date().getFullYear()} inmoinversión Inmobiliaria. Todos los derechos reservados.</span>
+          <span>© {new Date().getFullYear()} {brand} Inmobiliaria. Todos los derechos reservados.</span>
           <span>Aviso legal · Política de privacidad · Cookies</span>
         </div>
       </div>
@@ -165,19 +191,23 @@ export const SiteFooter = () => {
   );
 };
 
-export const WhatsAppFab = () => (
-  <a
-    href={`https://wa.me/${CONTACT_WHATSAPP.replace(/\D/g, "")}?text=${encodeURIComponent(
-      "Hola, me gustaría recibir más información sobre inmoinversión."
-    )}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Contactar por WhatsApp"
-    className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-pill bg-[#25D366] text-white flex items-center justify-center shadow-elegant hover:scale-105 transition-spring"
-  >
-    <MessageCircle className="h-7 w-7" />
-  </a>
-);
+export const WhatsAppFab = () => {
+  const settings = useSiteSettings();
+  const wa = (settings.whatsapp || CONTACT_WHATSAPP).replace(/\D/g, "");
+  return (
+    <a
+      href={`https://wa.me/${wa}?text=${encodeURIComponent(
+        "Hola, me gustaría recibir más información sobre inmoinversión."
+      )}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+      className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-pill bg-[#25D366] text-white flex items-center justify-center shadow-elegant hover:scale-105 transition-spring"
+    >
+      <MessageCircle className="h-7 w-7" />
+    </a>
+  );
+};
 
 interface LayoutProps {
   children: React.ReactNode;

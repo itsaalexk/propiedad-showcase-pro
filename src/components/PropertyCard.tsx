@@ -8,6 +8,13 @@ interface Props {
   variant?: "default" | "compact" | "wide";
 }
 
+const CATEGORY_LABEL: Record<Property["category"], string> = {
+  participaciones: "Participaciones",
+  alquiler: "Alquiler",
+  flipping: "Flipping",
+  otros: "Otros proyectos",
+};
+
 const STATUS_LABEL: Record<Property["status"], { label: string; className: string }> = {
   disponible: { label: "Disponible", className: "bg-available text-white" },
   proximamente: { label: "Próximamente", className: "bg-soon text-white" },
@@ -80,7 +87,7 @@ export const PropertyCard = ({ property, theme }: Props) => {
               {status.label}
             </span>
             <span className="text-[10px] font-semibold px-3 py-1.5 rounded-pill uppercase tracking-wider bg-accent/90 text-accent-foreground">
-              {property.type}
+              {property.type || CATEGORY_LABEL[property.category]}
             </span>
           </div>
 
@@ -90,17 +97,25 @@ export const PropertyCard = ({ property, theme }: Props) => {
 
           <div className="absolute bottom-0 left-0 right-0 p-6 text-primary-foreground">
             <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-accent">
-              Ref. {property.ref} · {property.city}
+              {[property.ref && `Ref. ${property.ref}`, property.city].filter(Boolean).join(" · ")}
             </span>
             <h3 className="font-display text-2xl mt-2 leading-tight uppercase">
               {property.title}
             </h3>
-            <div className="flex items-center gap-4 text-xs text-primary-foreground/80 mt-4 pt-4 border-t border-primary-foreground/20">
-              <span className="flex items-center gap-1.5"><BedDouble className="h-3.5 w-3.5 text-accent" /> {property.beds} hab</span>
-              <span className="flex items-center gap-1.5"><Bath className="h-3.5 w-3.5 text-accent" /> {property.baths}</span>
-              <span className="flex items-center gap-1.5"><Maximize className="h-3.5 w-3.5 text-accent" /> {property.sqft}m²</span>
-              <span className="ml-auto flex items-center gap-1"><Zap className="h-3.5 w-3.5 text-accent" /> {property.energyRating}</span>
-            </div>
+            {property.sqft > 0 ? (
+              <div className="flex items-center gap-4 text-xs text-primary-foreground/80 mt-4 pt-4 border-t border-primary-foreground/20">
+                <span className="flex items-center gap-1.5"><BedDouble className="h-3.5 w-3.5 text-accent" /> {property.beds} hab</span>
+                <span className="flex items-center gap-1.5"><Bath className="h-3.5 w-3.5 text-accent" /> {property.baths}</span>
+                <span className="flex items-center gap-1.5"><Maximize className="h-3.5 w-3.5 text-accent" /> {property.sqft}m²</span>
+                <span className="ml-auto flex items-center gap-1"><Zap className="h-3.5 w-3.5 text-accent" /> {property.energyRating}</span>
+              </div>
+            ) : (
+              property.location && (
+                <div className="flex items-center gap-1.5 text-xs text-primary-foreground/80 mt-4 pt-4 border-t border-primary-foreground/20">
+                  <MapPin className="h-3.5 w-3.5 text-accent" /> {property.location}
+                </div>
+              )
+            )}
           </div>
         </div>
       </Link>
