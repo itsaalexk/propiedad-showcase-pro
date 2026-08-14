@@ -176,8 +176,8 @@ const Home = () => {
 
       {/* SOBRE NOSOTROS premium */}
       <section className="bg-primary text-primary-foreground py-24">
-        <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div>
+        <div className="container mx-auto">
+          <div className="max-w-3xl">
             <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">Inmoinversión</span>
             <h2 className="font-display text-4xl md:text-6xl uppercase mt-4 leading-none">
               Construimos<br />
@@ -189,20 +189,6 @@ const Home = () => {
             <Link to={`/${theme}/sobre-nosotros`} className="mt-10 inline-flex items-center gap-2 rounded-pill bg-accent text-accent-foreground px-7 py-3.5 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
               Conoce el equipo <ArrowUpRight className="h-4 w-4" />
             </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { icon: Award, t: "Selección", d: "Solo propiedades excepcionales" },
-              { icon: Shield, t: "Discreción", d: "Trato confidencial garantizado" },
-              { icon: Sparkles, t: "Detalle", d: "Cada inversión es única" },
-              { icon: Heart, t: "Compromiso", d: "Equipo dedicado por completo" },
-            ].map((c) => (
-              <div key={c.t} className="corner-frame p-6 border border-primary-foreground/15 rounded-card">
-                <c.icon className="h-6 w-6 text-accent mb-4" />
-                <div className="font-display text-xl uppercase">{c.t}</div>
-                <p className="text-primary-foreground/60 text-sm mt-2">{c.d}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
