@@ -45,20 +45,16 @@ const Home = () => {
         </div>
         <div className="relative container mx-auto pt-24 pb-32 md:pt-32 md:pb-40">
           <div className="max-w-4xl">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="h-px w-12 bg-accent" />
-              <span className="text-[10px] uppercase tracking-[0.4em] text-accent">inmoinversión · Estd. 2009</span>
-            </div>
             <h1 className="font-display text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] tracking-tight">
-              Propiedades<br />
-              <span className="text-accent italic font-normal">excepcionales</span>
+              Inversión<br />
+              <span className="text-accent italic font-normal">llave en mano</span>
             </h1>
             <p className="mt-10 text-primary-foreground/80 text-lg md:text-xl max-w-2xl leading-relaxed">
               Una colección reducida de viviendas únicas, gestionadas con el detalle que su propietario merece.
             </p>
             <div className="mt-12 flex flex-wrap gap-4">
               <Link to={`/${theme}/viviendas`} className="inline-flex items-center gap-3 rounded-pill bg-accent text-accent-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
-                Explorar la colección <ArrowUpRight className="h-5 w-5" />
+                Encuentra tu oportunidad <ArrowUpRight className="h-5 w-5" />
               </Link>
               <Link to={`/${theme}/vender`} className="inline-flex items-center gap-3 rounded-pill border border-primary-foreground/30 text-primary-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-primary-foreground hover:text-primary transition-smooth">
                 Quiero vender
