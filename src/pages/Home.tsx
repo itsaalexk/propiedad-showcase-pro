@@ -180,11 +180,11 @@ const Home = () => {
           <div>
             <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">inmoinversión</span>
             <h2 className="font-display text-4xl md:text-6xl uppercase mt-4 leading-none">
-              No vendemos casas.<br />
-              <span className="italic text-accent font-normal">Cuidamos legados.</span>
+              Construimos<br />
+              <span className="italic text-accent font-normal">inversiones de éxito.</span>
             </h2>
             <p className="text-primary-foreground/75 mt-8 text-lg leading-relaxed">
-              Trabajamos con un número limitado de propiedades para ofrecer una atención verdaderamente personal a cada propietario y a cada visitante.
+              Con Inmo Inversión cuentas con un equipo que analiza, selecciona, reforma y gestiona cada proyecto como si fuese propio, porque una buena inversión no depende de la suerte, sino de estar asesorado.
             </p>
             <Link to={`/${theme}/sobre-nosotros`} className="mt-10 inline-flex items-center gap-2 rounded-pill bg-accent text-accent-foreground px-7 py-3.5 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
               Conoce el equipo <ArrowUpRight className="h-4 w-4" />
@@ -213,7 +213,7 @@ const Home = () => {
           <div className="max-w-2xl">
             <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">Hablemos</span>
             <h2 className="font-display text-4xl md:text-6xl uppercase mt-4 leading-none">
-              Tu vivienda merece <span className="italic text-accent font-normal">distinción</span>.
+              Tu inversión no debería ser <span className="italic text-accent font-normal">una preocupación</span>.
             </h2>
             <p className="text-primary-foreground/75 mt-6 text-lg">
               Concierta una conversación sin compromiso. Te explicamos en persona cómo trabajamos.
