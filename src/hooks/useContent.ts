@@ -21,7 +21,11 @@ export const useInvestments = () => {
     let alive = true;
     fetchInvestments()
       .then((docs) => alive && setData(docs))
-      .catch(() => alive && setData(localInvestments))
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error("[Sanity] Error al leer las inversiones (¿CORS o projectId incorrecto?):", err);
+        if (alive) setData(localInvestments);
+      })
       .finally(() => alive && setLoading(false));
     return () => {
       alive = false;

@@ -3,6 +3,7 @@ import { useInvestments } from "@/hooks/useContent";
 import { PropertyCard } from "@/components/PropertyCard";
 import { SiteLayout, useTheme } from "@/components/Site";
 import { PropertyMap } from "@/components/PropertyMap";
+import { sanityDebug } from "@/lib/sanity";
 import heroVilla from "@/assets/hero-villa.jpg";
 
 const CATEGORIES = [
@@ -67,7 +68,15 @@ const Listings = () => {
         {filtered.length === 0 ? (
           <div className="text-center py-24 bg-surface rounded-lg">
             <p className="text-muted-foreground">No hay inversiones en esta modalidad por el momento.</p>
+            {import.meta.env.DEV && (
+              <p className="text-xs text-muted-foreground/80 mt-3 max-w-lg mx-auto">
+                {sanityDebug.enabled
+                  ? `Sanity conectado (proyecto ${sanityDebug.projectId}, dataset ${sanityDebug.dataset}). Si has creado contenido y no aparece, revisa la consola: lo más habitual es que los documentos estén en borrador sin publicar, o un fallo de CORS.`
+                  : "Sanity no está configurado: crea un archivo .env.local en la raíz con VITE_SANITY_PROJECT_ID y reinicia npm run dev."}
+              </p>
+            )}
           </div>
+
         ) : (
           <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
             {filtered.map((p) => (
