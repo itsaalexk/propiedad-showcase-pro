@@ -12,13 +12,13 @@ export const CONTACT_EMAIL = "info@inmoinversion.com";
 
 export const buildWhatsappLink = (phone: string, title: string) =>
   `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(
-    `Hola, me interesa la vivienda "${title}" que he visto en inmoinversión.`
+    `Hola, me interesa la inversión "${title}" que he visto en inmoinversión.`
   )}`;
 
 export const buildEmailLink = (email: string, title: string) =>
   `mailto:${email}?subject=${encodeURIComponent(
     `Interés en ${title}`
-  )}&body=${encodeURIComponent(`Buenos días, me gustaría recibir más información sobre la vivienda "${title}". Quedo a la espera de su respuesta. Gracias.`)}`;
+  )}&body=${encodeURIComponent(`Buenos días, me gustaría recibir más información sobre la inversión "${title}". Quedo a la espera de su respuesta. Gracias.`)}`;
 
 interface CBProps {
   whatsapp: string;
@@ -57,7 +57,7 @@ export const SiteHeader = () => {
   const base = `/${theme}`;
   const links = [
     { to: `${base}`, label: "Inicio" },
-    { to: `${base}/viviendas`, label: "Viviendas" },
+    { to: `${base}/inversiones`, label: "Inversiones" },
     
     { to: `${base}/vender`, label: "Vender" },
     { to: `${base}/sobre-nosotros`, label: "Sobre nosotros" },
@@ -123,13 +123,13 @@ export const SiteFooter = () => {
             <span className="font-display text-xl">inmoinversión</span>
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
-            Inmobiliaria especializada en gestión y promoción de viviendas para propietarios particulares.
+            Inmobiliaria especializada en gestión y promoción de inversiones inmobiliarias para propietarios particulares.
           </p>
         </div>
         <div>
           <h4 className="text-sm font-semibold mb-4 uppercase tracking-wider text-accent">Navegación</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/70">
-            <li><Link to={`${base}/viviendas`} className="hover:text-accent transition-smooth">Viviendas disponibles</Link></li>
+            <li><Link to={`${base}/inversiones`} className="hover:text-accent transition-smooth">Inversiones disponibles</Link></li>
             
             <li><Link to={`${base}/vender`} className="hover:text-accent transition-smooth">Vender tu propiedad</Link></li>
             <li><Link to={`${base}/sobre-nosotros`} className="hover:text-accent transition-smooth">Sobre nosotros</Link></li>
