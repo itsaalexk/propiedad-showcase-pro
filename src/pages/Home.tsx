@@ -178,7 +178,7 @@ const Home = () => {
       <section className="bg-primary text-primary-foreground py-24">
         <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">inmoinversión</span>
+            <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">Inmoinversión</span>
             <h2 className="font-display text-4xl md:text-6xl uppercase mt-4 leading-none">
               Construimos<br />
               <span className="italic text-accent font-normal">inversiones de éxito.</span>
@@ -216,7 +216,7 @@ const Home = () => {
               Tu inversión no debería ser <span className="italic text-accent font-normal">una preocupación</span>.
             </h2>
             <p className="text-primary-foreground/75 mt-6 text-lg">
-              Concierta una conversación sin compromiso. Te explicamos en persona cómo trabajamos.
+              Te guiamos en cada paso para que inviertas tomando la decisión correcta. Con Inmoinversión cuentas con un equipo que analiza, selecciona, reforma y gestiona cada proyecto como si fuese propio, porque una buena inversión no depende de la suerte, sino de estar asesorado.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link to={`/${theme}/contacto`} className="inline-flex items-center gap-2 rounded-pill bg-accent text-accent-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
