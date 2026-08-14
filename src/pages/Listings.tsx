@@ -3,6 +3,7 @@ import { useInvestments } from "@/hooks/useContent";
 import { PropertyCard } from "@/components/PropertyCard";
 import { SiteLayout, useTheme } from "@/components/Site";
 import { PropertyMap } from "@/components/PropertyMap";
+import { sanityDebug } from "@/lib/sanity";
 import heroVilla from "@/assets/hero-villa.jpg";
 
 const CATEGORIES = [
