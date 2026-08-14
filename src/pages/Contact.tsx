@@ -25,7 +25,7 @@ const Contact = () => {
             <a href="tel:+34675832994" className="text-foreground hover:text-primary transition-smooth">+34 675 83 29 94</a>
             <p className="text-xs text-muted-foreground mt-2">Lun a Vie · 9h–19h</p>
           </div>
-          <a href="https://wa.me/34600000000" target="_blank" rel="noreferrer" className="block bg-card border border-border rounded-lg p-6 shadow-card hover-lift">
+          <a href="https://wa.me/34675832994" target="_blank" rel="noreferrer" className="block bg-card border border-border rounded-lg p-6 shadow-card hover-lift">
             <MessageCircle className="h-7 w-7 text-[#25D366] mb-3" />
             <h3 className="font-display text-lg mb-1">WhatsApp directo</h3>
             <p className="text-foreground">+34 675 83 29 94</p>
@@ -72,7 +72,7 @@ const Contact = () => {
             <div>
               <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Asunto *</label>
               <select required className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth">
-                <option>Información sobre una vivienda</option>
+                <option>Información sobre una inversión</option>
                 <option>Soy propietario y quiero saber más</option>
                 <option>Concertar una visita</option>
                 <option>Otra consulta</option>

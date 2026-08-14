@@ -52,10 +52,10 @@ const Listings = () => {
         <div className="relative container mx-auto py-16 md:py-20">
           <span className="text-xs uppercase tracking-[0.3em] text-accent">Inmobiliaria inmoinversión</span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mt-3 max-w-3xl text-balance">
-            Viviendas seleccionadas, propietarios atendidos.
+            Inversiones seleccionadas, propietarios atendidos.
           </h1>
           <p className="mt-4 text-primary-foreground/80 max-w-2xl">
-            Gestionamos en exclusiva propiedades de particulares en toda España. Encuentra tu próxima vivienda y contacta directamente con nuestro equipo.
+            Gestionamos en exclusiva propiedades de particulares en toda España. Encuentra tu próxima inversión y contacta directamente con nuestro equipo.
           </p>
 
           <div className="mt-8 bg-background rounded-lg p-2 shadow-elegant flex flex-col md:flex-row gap-2 max-w-4xl">
@@ -189,9 +189,9 @@ const Listings = () => {
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="font-display text-2xl">
-                  {filtered.length} vivienda{filtered.length !== 1 && "s"}
-                </h2>
+              <h2 className="font-display text-2xl">
+                {filtered.length} inversión{filtered.length !== 1 && "es"}
+              </h2>
                 <p className="text-sm text-muted-foreground mt-1">Selección actualizada por el equipo de inmoinversión</p>
               </div>
               <button
@@ -204,7 +204,7 @@ const Listings = () => {
 
             {filtered.length === 0 ? (
               <div className="text-center py-24 bg-surface rounded-lg">
-                <p className="text-muted-foreground">No hay viviendas que coincidan con tu búsqueda.</p>
+                <p className="text-muted-foreground">No hay inversiones que coincidan con tu búsqueda.</p>
                 <button onClick={reset} className="mt-4 text-sm text-primary font-medium hover:underline">
                   Limpiar filtros
                 </button>
@@ -224,7 +224,7 @@ const Listings = () => {
       <section className="container mx-auto pb-16">
         <div className="mb-6">
           <span className="text-[10px] uppercase tracking-[0.4em] text-accent">Ubicaciones</span>
-          <h2 className="font-display text-3xl md:text-4xl mt-2">Encuentra las viviendas en el mapa</h2>
+          <h2 className="font-display text-3xl md:text-4xl mt-2">Encuentra las inversiones en el mapa</h2>
           <p className="text-sm text-muted-foreground mt-1">Haz clic en un marcador para ver la propiedad y acceder a sus detalles.</p>
         </div>
         <PropertyMap properties={filtered} theme={theme} />

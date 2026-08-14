@@ -19,10 +19,10 @@ const About = () => {
         <div>
           <h2 className="font-display text-3xl mb-5">Nuestra historia</h2>
           <p className="text-foreground/80 leading-relaxed mb-4">
-            inmoinversión nace de la convicción de que una vivienda merece más que un anuncio. Llevamos más de quince años acompañando a propietarios particulares que buscan una gestión cuidada, transparente y profesional de su patrimonio.
+            inmoinversión nace de la convicción de que una inversión merece más que un anuncio. Llevamos más de quince años acompañando a propietarios particulares que buscan una gestión cuidada, transparente y profesional de su patrimonio.
           </p>
           <p className="text-foreground/80 leading-relaxed">
-            Hoy gestionamos un catálogo seleccionado de viviendas en toda España, con un equipo pequeño y comprometido que trata cada propiedad como si fuera la suya.
+            Hoy gestionamos un catálogo seleccionado de inversiones en toda España, con un equipo pequeño y comprometido que trata cada propiedad como si fuera la suya.
           </p>
         </div>
       </section>
@@ -33,7 +33,7 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { icon: Heart, t: "Trato humano", d: "Cada propietario tiene un interlocutor único. Sin call centers, sin departamentos." },
-              { icon: Award, t: "Selección rigurosa", d: "No aceptamos cualquier vivienda ni cualquier candidato. La calidad importa." },
+              { icon: Award, t: "Selección rigurosa", d: "No aceptamos cualquier inversión ni cualquier candidato. La calidad importa." },
               { icon: Target, t: "Resultados claros", d: "Informes mensuales, transparencia total. Sabes exactamente qué está pasando." },
             ].map((v, i) => (
               <div key={i} className="bg-card border border-border rounded-lg p-7 text-center">

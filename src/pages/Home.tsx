@@ -50,10 +50,10 @@ const Home = () => {
               <span className="text-accent italic font-normal">llave en mano</span>
             </h1>
             <p className="mt-10 text-primary-foreground/80 text-lg md:text-xl max-w-2xl leading-relaxed">
-              Una colección reducida de viviendas únicas, gestionadas con el detalle que su propietario merece.
+              Una colección reducida de inversiones únicas, gestionadas con el detalle que su propietario merece.
             </p>
             <div className="mt-12 flex flex-wrap gap-4">
-              <Link to={`/${theme}/viviendas`} className="inline-flex items-center gap-3 rounded-pill bg-accent text-accent-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
+              <Link to={`/${theme}/inversiones`} className="inline-flex items-center gap-3 rounded-pill bg-accent text-accent-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
                 Encuentra tu oportunidad <ArrowUpRight className="h-5 w-5" />
               </Link>
               <Link to={`/${theme}/vender`} className="inline-flex items-center gap-3 rounded-pill border border-primary-foreground/30 text-primary-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-primary-foreground hover:text-primary transition-smooth">
@@ -142,7 +142,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SLIDER premium — viviendas destacadas */}
+      {/* SLIDER premium — inversiones destacadas */}
       <section className="container mx-auto py-24">
         <div className="flex items-end justify-between mb-12">
           <div>
@@ -168,7 +168,7 @@ const Home = () => {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link to={`/${theme}/viviendas`} className="inline-flex items-center gap-2 rounded-pill border-2 border-primary text-primary px-8 py-3.5 text-sm font-bold uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-smooth">
+          <Link to={`/${theme}/inversiones`} className="inline-flex items-center gap-2 rounded-pill border-2 border-primary text-primary px-8 py-3.5 text-sm font-bold uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-smooth">
             Encuentra tu oportunidad <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
@@ -194,7 +194,7 @@ const Home = () => {
             {[
               { icon: Award, t: "Selección", d: "Solo propiedades excepcionales" },
               { icon: Shield, t: "Discreción", d: "Trato confidencial garantizado" },
-              { icon: Sparkles, t: "Detalle", d: "Cada vivienda es única" },
+              { icon: Sparkles, t: "Detalle", d: "Cada inversión es única" },
               { icon: Heart, t: "Compromiso", d: "Equipo dedicado por completo" },
             ].map((c) => (
               <div key={c.t} className="corner-frame p-6 border border-primary-foreground/15 rounded-card">

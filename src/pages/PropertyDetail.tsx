@@ -106,7 +106,7 @@ const PropertyDetail = () => {
 
           {/* DESTACADOS */}
           <div>
-            <h2 className="font-display text-2xl mb-4">Lo que destaca de esta vivienda</h2>
+            <h2 className="font-display text-2xl mb-4">Lo que destaca de esta inversión</h2>
             <div className="grid sm:grid-cols-3 gap-3">
               {property.highlights.map((h, i) => (
                 <div key={i} className="bg-surface border border-border rounded-lg p-4 text-sm font-medium">
@@ -165,7 +165,7 @@ const PropertyDetail = () => {
                 </div>
               </div>
               <p className="text-sm text-muted-foreground mb-5">
-                ¿Te interesa esta vivienda? Contáctanos y te responderemos en menos de 24h.
+                ¿Te interesa esta inversión? Contáctanos y te responderemos en menos de 24h.
               </p>
               <ContactButtons
                 whatsapp={property.owner.whatsapp}
@@ -181,9 +181,9 @@ const PropertyDetail = () => {
             <div className="bg-surface border border-border rounded-lg p-5">
               <h3 className="font-display text-base mb-2">¿Eres propietario?</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Descubre cómo inmoinversión puede gestionar tu vivienda.
+                Descubre cómo inmoinversión puede gestionar tu inversión.
               </p>
-              <Link to={`/${theme}/propietarios`} className="text-sm text-primary font-medium hover:underline">
+              <Link to={`/${theme}/vender`} className="text-sm text-primary font-medium hover:underline">
                 Conoce nuestro servicio →
               </Link>
             </div>
@@ -191,9 +191,9 @@ const PropertyDetail = () => {
         </aside>
       </section>
 
-      {/* OTRAS VIVIENDAS */}
+      {/* OTRAS INVERSIONES */}
       <section className="container mx-auto py-12 border-t border-border mt-8">
-        <h2 className="font-display text-2xl md:text-3xl mb-8">Otras viviendas que pueden interesarte</h2>
+        <h2 className="font-display text-2xl md:text-3xl mb-8">Otras inversiones que pueden interesarte</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {otherProps.map((p) => (
             <PropertyCard key={p.id} property={p} theme={theme} />

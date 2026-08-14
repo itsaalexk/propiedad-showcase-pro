@@ -50,7 +50,7 @@ export const properties: Property[] = [
     image: p1,
     gallery: [p1, p4, p2, p6],
     description:
-      "Loft contemporáneo bañado por luz natural durante todo el día. Acabados de autor, suelo de madera de roble y ventanales con vistas a un patio interior arbolado. Una vivienda diseñada para quienes valoran el detalle y la tranquilidad en pleno corazón de Madrid.",
+      "Loft contemporáneo bañado por luz natural durante todo el día. Acabados de autor, suelo de madera de roble y ventanales con vistas a un patio interior arbolado. Una inversión diseñada para quienes valoran el detalle y la tranquilidad en pleno corazón de Madrid.",
     features: ["Cocina equipada", "Calefacción central", "Ascensor", "Patio interior", "Suelo de madera", "Doble ventana"],
     highlights: ["Luz natural todo el día", "Edificio rehabilitado 2021", "A 5 min del metro Sol"],
     energyRating: "B",
@@ -126,7 +126,7 @@ export const properties: Property[] = [
     image: p4,
     gallery: [p4, p1, p2, p6],
     description:
-      "Ático en planta 21 con ventanales de suelo a techo y terraza envolvente de 40m². Vistas espectaculares al skyline de Valencia. Edificio con conserje 24h, piscina y gimnasio. Una vivienda para quienes buscan vivir en altura.",
+      "Ático en planta 21 con ventanales de suelo a techo y terraza envolvente de 40m². Vistas espectaculares al skyline de Valencia. Edificio con conserje 24h, piscina y gimnasio. Una inversión para quienes buscan vivir en altura.",
     features: ["Terraza 40m²", "Vistas panorámicas", "Conserje 24h", "Piscina comunitaria", "Gimnasio", "Aire acondicionado"],
     highlights: ["Planta 21", "Terraza envolvente", "Servicios premium"],
     energyRating: "A",

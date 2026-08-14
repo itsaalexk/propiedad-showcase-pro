@@ -21,7 +21,7 @@ export const PropertyCard = ({ property, theme }: Props) => {
   if (theme === "t2") {
     return (
       <Link
-        to={`/${theme}/vivienda/${property.slug}`}
+        to={`/${theme}/inversion/${property.slug}`}
         className="group block bg-card border border-border overflow-hidden hover:shadow-card transition-smooth"
       >
         <div className="relative overflow-hidden aspect-[4/3] bg-muted">
@@ -63,7 +63,7 @@ export const PropertyCard = ({ property, theme }: Props) => {
   if (theme === "t3") {
     return (
       <Link
-        to={`/${theme}/vivienda/${property.slug}`}
+        to={`/${theme}/inversion/${property.slug}`}
         className="group block bg-card rounded-card overflow-hidden shadow-card hover:shadow-glow transition-spring relative"
       >
         <div className="relative overflow-hidden aspect-[4/5] bg-muted">
@@ -110,7 +110,7 @@ export const PropertyCard = ({ property, theme }: Props) => {
   // ============== TEMA 1 — ESENCIAL MODERNO (default, redondeado generoso) ==============
   return (
     <Link
-      to={`/${theme}/vivienda/${property.slug}`}
+      to={`/${theme}/inversion/${property.slug}`}
       className="group block bg-card border border-border rounded-card overflow-hidden hover-lift"
     >
       <div className="relative overflow-hidden aspect-[4/3] bg-muted">
