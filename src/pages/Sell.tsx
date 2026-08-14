@@ -1,7 +1,8 @@
-import { SiteLayout, useTheme, ContactButtons, CONTACT_WHATSAPP, CONTACT_EMAIL } from "@/components/Site";
+import { SiteLayout, useTheme } from "@/components/Site";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, BadgeEuro, Clock, ShieldCheck, Handshake, FileCheck, Banknote } from "lucide-react";
+import { ArrowUpRight, BadgeEuro, Clock, ShieldCheck, Handshake, FileCheck, Banknote, MessageCircle } from "lucide-react";
 import heroInterior from "@/assets/hero-interior.jpg";
+import { CONTACT_WHATSAPP } from "@/lib/contact";
 
 const REASONS = [
   { icon: Banknote, t: "Compramos directamente", d: "Somos los compradores. Sin intermediarios ni cadenas de venta interminables." },
@@ -103,15 +104,23 @@ const Sell = () => {
               Cuéntanos sobre tu <span className="italic text-accent font-normal">propiedad</span>
             </h2>
             <p className="text-primary-foreground/75 mt-6 text-lg">
-              Escríbenos por WhatsApp o correo y estudiaremos tu inmueble para hacerte una oferta.
+              Escríbenos y estudiaremos tu inmueble para hacerte una oferta directa, ágil y sin complicaciones.
             </p>
-            <div className="mt-10 max-w-md">
-              <ContactButtons
-                whatsapp={CONTACT_WHATSAPP}
-                email={CONTACT_EMAIL}
-                title="venta de mi propiedad"
-                size="lg"
-              />
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href={`https://wa.me/${CONTACT_WHATSAPP.replace(/\D/g, "")}?text=${encodeURIComponent("Hola, quiero vender mi propiedad")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-pill bg-[#25D366] text-white px-8 py-4 text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-smooth"
+              >
+                <MessageCircle className="h-5 w-5" /> WhatsApp
+              </a>
+              <Link
+                to={`/${theme}/contacto?asunto=propietario`}
+                className="inline-flex items-center gap-3 rounded-pill bg-accent text-accent-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring"
+              >
+                Enviar correo <ArrowUpRight className="h-5 w-5" />
+              </Link>
             </div>
           </div>
         </div>
