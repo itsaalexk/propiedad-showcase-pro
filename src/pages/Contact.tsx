@@ -74,8 +74,15 @@ const Contact = () => {
               <select required className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth">
                 <option>Información sobre una inversión</option>
                 <option>Soy propietario y quiero saber más</option>
-                <option>Concertar una visita</option>
                 <option>Otra consulta</option>
+              </select>
+            </div>
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Rango de inversión *</label>
+              <select required className="mt-2 w-full bg-background border border-border rounded-md px-4 py-3 text-sm outline-none focus:border-primary transition-smooth">
+                <option>Desde 1.000 € hasta 49.999 €</option>
+                <option>Desde 50.000 € hasta 100.000 €</option>
+                <option>Más de 100.000 €</option>
               </select>
             </div>
           </div>
