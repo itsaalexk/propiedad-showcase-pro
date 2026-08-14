@@ -45,20 +45,16 @@ const Home = () => {
         </div>
         <div className="relative container mx-auto pt-24 pb-32 md:pt-32 md:pb-40">
           <div className="max-w-4xl">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="h-px w-12 bg-accent" />
-              <span className="text-[10px] uppercase tracking-[0.4em] text-accent">inmoinversión · Estd. 2009</span>
-            </div>
             <h1 className="font-display text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] tracking-tight">
-              Propiedades<br />
-              <span className="text-accent italic font-normal">excepcionales</span>
+              Inversión<br />
+              <span className="text-accent italic font-normal">llave en mano</span>
             </h1>
             <p className="mt-10 text-primary-foreground/80 text-lg md:text-xl max-w-2xl leading-relaxed">
               Una colección reducida de viviendas únicas, gestionadas con el detalle que su propietario merece.
             </p>
             <div className="mt-12 flex flex-wrap gap-4">
               <Link to={`/${theme}/viviendas`} className="inline-flex items-center gap-3 rounded-pill bg-accent text-accent-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
-                Explorar la colección <ArrowUpRight className="h-5 w-5" />
+                Encuentra tu oportunidad <ArrowUpRight className="h-5 w-5" />
               </Link>
               <Link to={`/${theme}/vender`} className="inline-flex items-center gap-3 rounded-pill border border-primary-foreground/30 text-primary-foreground px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-primary-foreground hover:text-primary transition-smooth">
                 Quiero vender
@@ -69,12 +65,11 @@ const Home = () => {
 
         {/* Banda de stats */}
         <div className="relative border-t border-primary-foreground/10">
-          <div className="container mx-auto py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="container mx-auto py-8 grid grid-cols-2 md:grid-cols-3 gap-6">
             {[
               { v: "+15", l: "Años" },
               { v: "+450", l: "Propietarios" },
               { v: "98%", l: "Satisfacción" },
-              { v: "24h", l: "Respuesta" },
             ].map((s) => (
               <div key={s.l} className="text-center">
                 <div className="font-display text-4xl md:text-5xl text-accent">{s.v}</div>
@@ -153,7 +148,7 @@ const Home = () => {
           <div>
             <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">La colección</span>
             <h2 className="font-display text-4xl md:text-6xl uppercase mt-4 leading-none">
-              Viviendas <span className="italic text-accent font-normal">destacadas</span>
+              Inversiones <span className="italic text-accent font-normal">destacadas</span>
             </h2>
           </div>
           <div className="hidden md:flex items-center gap-2">
@@ -174,7 +169,7 @@ const Home = () => {
         </div>
         <div className="text-center mt-12">
           <Link to={`/${theme}/viviendas`} className="inline-flex items-center gap-2 rounded-pill border-2 border-primary text-primary px-8 py-3.5 text-sm font-bold uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-smooth">
-            Ver toda la colección <ArrowUpRight className="h-4 w-4" />
+            Encuentra tu oportunidad <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
@@ -185,11 +180,11 @@ const Home = () => {
           <div>
             <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">inmoinversión</span>
             <h2 className="font-display text-4xl md:text-6xl uppercase mt-4 leading-none">
-              No vendemos casas.<br />
-              <span className="italic text-accent font-normal">Cuidamos legados.</span>
+              Construimos<br />
+              <span className="italic text-accent font-normal">inversiones de éxito.</span>
             </h2>
             <p className="text-primary-foreground/75 mt-8 text-lg leading-relaxed">
-              Trabajamos con un número limitado de propiedades para ofrecer una atención verdaderamente personal a cada propietario y a cada visitante.
+              Con Inmo Inversión cuentas con un equipo que analiza, selecciona, reforma y gestiona cada proyecto como si fuese propio, porque una buena inversión no depende de la suerte, sino de estar asesorado.
             </p>
             <Link to={`/${theme}/sobre-nosotros`} className="mt-10 inline-flex items-center gap-2 rounded-pill bg-accent text-accent-foreground px-7 py-3.5 text-sm font-bold uppercase tracking-wider hover:scale-[1.03] transition-spring">
               Conoce el equipo <ArrowUpRight className="h-4 w-4" />
@@ -218,7 +213,7 @@ const Home = () => {
           <div className="max-w-2xl">
             <span className="text-[10px] uppercase tracking-[0.4em] text-accent deco-dot">Hablemos</span>
             <h2 className="font-display text-4xl md:text-6xl uppercase mt-4 leading-none">
-              Tu vivienda merece <span className="italic text-accent font-normal">distinción</span>.
+              Tu inversión no debería ser <span className="italic text-accent font-normal">una preocupación</span>.
             </h2>
             <p className="text-primary-foreground/75 mt-6 text-lg">
               Concierta una conversación sin compromiso. Te explicamos en persona cómo trabajamos.
