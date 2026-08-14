@@ -133,12 +133,16 @@ export const SiteFooter = () => {
     <footer className="bg-primary text-primary-foreground mt-16">
       <div className="container mx-auto py-14 grid md:grid-cols-4 gap-10">
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="h-8 w-8 rounded-md bg-accent flex items-center justify-center">
-              <span className="text-accent-foreground font-display text-lg leading-none">II</span>
+          {settings.logoUrl ? (
+            <img src={settings.logoUrl} alt={brand} className="h-10 w-auto object-contain mb-4" />
+          ) : (
+            <div className="flex items-center gap-2 mb-4">
+              <div className="h-8 w-8 rounded-md bg-accent flex items-center justify-center">
+                <span className="text-accent-foreground font-display text-lg leading-none">II</span>
+              </div>
+              <span className="font-display text-xl">{brand}</span>
             </div>
-            <span className="font-display text-xl">{brand}</span>
-          </div>
+          )}
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
             Inmobiliaria especializada en gestión y promoción de inversiones inmobiliarias.
           </p>
