@@ -143,9 +143,31 @@ const mapInvestment = (doc: Record<string, unknown>): Investment => {
 
 export const fetchInvestments = async (): Promise<Investment[]> => {
   if (!sanityClient) return [];
-  const docs = await sanityClient.fetch<Record<string, unknown>[]>(
-    `*[_type == "investment" && defined(slug.current)] | order(_createdAt desc){${INVESTMENT_FIELDS}}`
-  );
+  const query = `*[_type == "investment" && defined(slug.current)] | order(_createdAt desc){${INVESTMENT_FIELDS}}`;
+  const docs = await sanityClient.fetch<Record<string, unknown>[]>(query);
+
+  if (import.meta.env.DEV) {
+    // eslint-disable-next-line no-console
+    console.info(`[Sanity] inversiones publicadas: ${docs.length}`);
+    if (docs.length === 0 && draftClient) {
+      try {
+        const raw = await draftClient.fetch<{ _id: string }[]>(`*[_type == "investment"]{_id}`);
+        const drafts = raw.filter((d) => d._id.startsWith("drafts."));
+        if (raw.length === 0) {
+          // eslint-disable-next-line no-console
+          console.warn("[Sanity] No hay ningún documento 'investment' en el dataset. ¿Estás en el dataset correcto?");
+        } else if (drafts.length) {
+          // eslint-disable-next-line no-console
+          console.warn(
+            `[Sanity] Hay ${drafts.length} inversión(es) en BORRADOR sin publicar. Pulsa "Publish" en el Studio para que aparezcan en la web.`
+          );
+        }
+      } catch {
+        /* sin token: no podemos ver borradores */
+      }
+    }
+  }
+
   return docs.map(mapInvestment);
 };
 
