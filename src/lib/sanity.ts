@@ -52,6 +52,11 @@ const draftClient: SanityClient | null =
     ? createClient({ projectId: projectId!, dataset, apiVersion, useCdn: false, perspective: "raw", token: writeToken })
     : null;
 
+const writeClient: SanityClient | null =
+  isSanityEnabled && writeToken
+    ? createClient({ projectId: projectId!, dataset, apiVersion, useCdn: false, token: writeToken })
+    : null;
+
 const builder = sanityClient ? imageUrlBuilder(sanityClient) : null;
 
 
