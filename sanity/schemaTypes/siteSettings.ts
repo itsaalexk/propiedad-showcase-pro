@@ -15,7 +15,9 @@ export const siteSettings = defineType({
     { name: "contact", title: "Contacto", default: true },
     { name: "office", title: "Oficina" },
     { name: "social", title: "Redes sociales" },
+    { name: "legal", title: "Términos y condiciones" },
   ],
+
   fields: [
     defineField({
       name: "brandName",
@@ -90,6 +92,59 @@ export const siteSettings = defineType({
         ),
       ],
     }),
+
+    defineField({
+      name: "termsTitle",
+      title: "Título de la página",
+      type: "string",
+      group: "legal",
+      initialValue: "Términos y condiciones",
+    }),
+    defineField({
+      name: "termsUpdatedAt",
+      title: "Última actualización",
+      type: "date",
+      group: "legal",
+      options: { dateFormat: "DD/MM/YYYY" },
+    }),
+    defineField({
+      name: "terms",
+      title: "Términos y condiciones",
+      type: "array",
+      group: "legal",
+      description: "Texto enriquecido: negrita, cursiva, títulos, listas y enlaces.",
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "Título", value: "h2" },
+            { title: "Subtítulo", value: "h3" },
+            { title: "Cita", value: "blockquote" },
+          ],
+          lists: [
+            { title: "Viñetas", value: "bullet" },
+            { title: "Numerada", value: "number" },
+          ],
+          marks: {
+            decorators: [
+              { title: "Negrita", value: "strong" },
+              { title: "Cursiva", value: "em" },
+              { title: "Subrayado", value: "underline" },
+            ],
+            annotations: [
+              {
+                name: "link",
+                type: "object",
+                title: "Enlace",
+                fields: [{ name: "href", type: "url", title: "URL" }],
+              },
+            ],
+          },
+        },
+      ],
+    }),
   ],
+
   preview: { prepare: () => ({ title: "Ajustes del sitio" }) },
 });
