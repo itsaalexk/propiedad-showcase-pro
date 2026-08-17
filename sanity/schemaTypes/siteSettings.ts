@@ -59,6 +59,15 @@ export const siteSettings = defineType({
     }),
 
     defineField({
+      name: "favicon",
+      title: "Favicon (icono de la pestaña)",
+      type: "image",
+      group: "contact",
+      description: "Imagen cuadrada (PNG o SVG), idealmente 512x512. Si no se sube, se usa el logo.",
+    }),
+
+
+    defineField({
       name: "office",
       title: "Oficina",
       type: "object",
