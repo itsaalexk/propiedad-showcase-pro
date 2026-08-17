@@ -190,7 +190,11 @@ export type SiteSettings = {
   openingHours?: string;
   office?: { street?: string; postalCode?: string; city?: string; note?: string };
   social?: Partial<Record<"instagram" | "facebook" | "youtube" | "linkedin", SocialLink>>;
+  termsTitle?: string;
+  termsUpdatedAt?: string;
+  terms?: unknown[];
 };
+
 
 export const fetchSiteSettings = async (): Promise<SiteSettings | null> => {
   if (!sanityClient) return null;

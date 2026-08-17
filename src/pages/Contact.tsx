@@ -5,7 +5,7 @@ import { useSiteSettings } from "@/hooks/useContent";
 import { submitContactRequest } from "@/lib/sanity";
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_WHATSAPP } from "@/lib/contact";
 import { toast } from "@/hooks/use-toast";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const SUBJECTS = [
   "Información sobre una inversión",
@@ -183,8 +183,15 @@ const Contact = () => {
 
           <label className="flex items-start gap-2 text-xs text-muted-foreground">
             <input type="checkbox" required className="mt-0.5" />
-            <span>He leído y acepto la política de privacidad de inmoinversión.</span>
+            <span>
+              He leído y acepto los{" "}
+              <Link to="/t3/terminos-y-condiciones" target="_blank" className="text-primary underline hover:opacity-80">
+                términos y condiciones
+              </Link>{" "}
+              de inmoinversión.
+            </span>
           </label>
+
 
           <button type="submit" disabled={sending} className="inline-flex items-center justify-center gap-2 rounded-md bg-primary text-primary-foreground px-8 py-3.5 text-sm font-medium hover:opacity-90 transition-smooth disabled:opacity-60">
             <Send className="h-4 w-4" /> {sending ? "Enviando…" : "Enviar mensaje"}

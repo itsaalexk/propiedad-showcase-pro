@@ -12,6 +12,8 @@ import Contact from "./pages/Contact.tsx";
 
 import Sell from "./pages/Sell.tsx";
 import About from "./pages/About.tsx";
+import Terms from "./pages/Terms.tsx";
+
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,8 @@ const App = () => (
           
           <Route path="/:theme/vender" element={<Sell />} />
           <Route path="/:theme/sobre-nosotros" element={<About />} />
+          <Route path="/:theme/terminos-y-condiciones" element={<Terms />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
