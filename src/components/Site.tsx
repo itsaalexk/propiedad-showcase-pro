@@ -192,7 +192,10 @@ export const SiteFooter = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto py-5 text-xs text-primary-foreground/50 flex flex-col md:flex-row justify-between gap-2">
           <span>© {new Date().getFullYear()} {brand} Inmobiliaria. Todos los derechos reservados.</span>
-          <span>Aviso legal · Política de privacidad · Cookies</span>
+          <Link to={`${base}/terminos-y-condiciones`} className="hover:text-accent transition-smooth">
+            Términos y condiciones
+          </Link>
+
         </div>
       </div>
     </footer>
