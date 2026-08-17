@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Mail, MessageCircle, MapPin, Phone, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import { useSiteSettings } from "@/hooks/useContent";
@@ -220,11 +221,28 @@ export const WhatsAppFab = () => {
   );
 };
 
+/** Aplica el favicon configurado en Sanity (o el logo si no hay favicon). */
+const useFavicon = (url?: string) => {
+  useEffect(() => {
+    if (!url) return;
+    let link = document.querySelector<HTMLLinkElement>("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+    link.type = url.includes(".svg") ? "image/svg+xml" : "image/png";
+    link.href = url;
+  }, [url]);
+};
+
 interface LayoutProps {
   children: React.ReactNode;
 }
 export const SiteLayout = ({ children }: LayoutProps) => {
   const theme = useTheme();
+  const settings = useSiteSettings();
+  useFavicon(settings.faviconUrl);
   return (
     <div data-theme={theme} className="min-h-screen bg-background text-foreground flex flex-col">
       <SiteHeader />
@@ -234,3 +252,4 @@ export const SiteLayout = ({ children }: LayoutProps) => {
     </div>
   );
 };
+
