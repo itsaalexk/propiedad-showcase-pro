@@ -184,6 +184,7 @@ export type SocialLink = { enabled?: boolean; url?: string };
 export type SiteSettings = {
   brandName?: string;
   logoUrl?: string;
+  faviconUrl?: string;
   phone?: string;
   whatsapp?: string;
   email?: string;
@@ -198,13 +199,15 @@ export type SiteSettings = {
 
 export const fetchSiteSettings = async (): Promise<SiteSettings | null> => {
   if (!sanityClient) return null;
-  const doc = await sanityClient.fetch<(SiteSettings & { logo?: unknown }) | null>(
+  const doc = await sanityClient.fetch<(SiteSettings & { logo?: unknown; favicon?: unknown }) | null>(
     `*[_type == "siteSettings"][0]`
   );
   if (!doc) return null;
   const logoUrl = doc.logo ? urlFor(doc.logo, 400) : undefined;
-  return { ...doc, logoUrl: logoUrl || undefined };
+  const faviconUrl = doc.favicon ? urlFor(doc.favicon, 256) : undefined;
+  return { ...doc, logoUrl: logoUrl || undefined, faviconUrl: faviconUrl || logoUrl || undefined };
 };
+
 
 export type ContactPayload = {
   name: string;
